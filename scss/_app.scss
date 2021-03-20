@@ -10,7 +10,16 @@ body.select-nft {
     }
 }
 
-.logged-in header {
+body.nft-selected {
+    .func-stage-front img {
+        opacity:0;
+    }
+    .func-stage-flip {
+        display:flex;
+    }
+}
+
+.logged-in {
     .connect {
         display:none !important;
     }
@@ -172,6 +181,7 @@ header {
             .stage-nft-media {
                 margin:5vh 5vw;
                 img {
+                    opacity:0;
                     max-height:60vh;
                     max-width:100%;
                     pointer-events: none;
@@ -261,7 +271,7 @@ header {
     bottom:0;
     background-color:#f4f4f4da;
     opacity:0;
-    display:flex;
+    display:none;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
@@ -396,7 +406,6 @@ header {
     }
 }
 
-
 footer {
     display:block;
     width:100%;
@@ -404,3 +413,6 @@ footer {
     text-align:center;
     color:$gray-light;
 }
+
+
+

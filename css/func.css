@@ -301,6 +301,22 @@ body.select-nft .nft-selector {
   transform: translateY(0vh);
 }
 
+body.nft-selected .func-stage-front img {
+  opacity: 0;
+}
+
+body.nft-selected .func-stage-flip {
+  display: flex;
+}
+
+.logged-in .connect {
+  display: none !important;
+}
+
+.logged-in .user {
+  display: inline-block;
+}
+
 header {
   width: 94vw;
   padding: 4vh 3vw;
@@ -470,6 +486,7 @@ header .user {
 }
 
 .func-stage .func-stage-inner .func-stage-front .stage-nft-media img {
+  opacity: 0;
   max-height: 60vh;
   max-width: 100%;
   pointer-events: none;
@@ -567,7 +584,7 @@ header .user {
   bottom: 0;
   background-color: #f4f4f4da;
   opacity: 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
