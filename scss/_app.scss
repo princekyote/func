@@ -12,7 +12,7 @@ body.select-nft {
 
 body.nft-selected {
     .func-stage-front img {
-        opacity:0;
+        opacity:1 !important;
     }
     .func-stage-flip {
         display:flex;
@@ -144,7 +144,7 @@ header {
             opacity:1;
         }
     }
-    &:active {
+    &:active, &.flip {
         .func-stage-inner {
             transform: rotateY(180deg);
         }

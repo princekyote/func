@@ -302,7 +302,7 @@ body.select-nft .nft-selector {
 }
 
 body.nft-selected .func-stage-front img {
-  opacity: 0;
+  opacity: 1 !important;
 }
 
 body.nft-selected .func-stage-flip {
@@ -443,7 +443,7 @@ header .user {
   opacity: 1;
 }
 
-.func-stage:active .func-stage-inner {
+.func-stage:active .func-stage-inner, .func-stage.flip .func-stage-inner {
   transform: rotateY(180deg);
 }
 
