@@ -1,0 +1,256 @@
+// Animations
+@mixin fade() {
+    moz-transition: all 0.15s ease-out; transition: all 0.15s ease-out;
+}
+@mixin fadeSlow() {
+    moz-transition: all 0.35s ease-out; transition: all 0.35s ease-out;
+}
+
+@-webkit-keyframes fadeIn {
+  100% {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+    @mixin aniFadeIn() {
+        opacity: 0;
+        pointer-events: none;
+        -webkit-animation: fadeIn 0.8s 0.4s 1 forwards cubic-bezier(0.22, 0.45, 0.24, 1);
+        animation: fadeIn 0.8s 0.4s 1 forwards cubic-bezier(0.22, 0.45, 0.24, 1); 
+    }
+
+@-webkit-keyframes fadeUp {
+    100% {transform: translateY(0);opacity: 1;}
+}
+@keyframes fadeUp {
+    100% {transform: translateY(0);opacity: 1}
+}
+    @mixin aniFadeUp() {
+        -webkit-transform: translateY(100px);
+        transform: translateY(100px);
+        -webkit-animation: fadeUp 0.9s 0.4s 1 forwards cubic-bezier(0.200, 0.525, 0.475, 1.000); ;
+        animation: fadeUp 0.9s 0.4s 1 forwards cubic-bezier(0.200, 0.525, 0.475, 1.000);
+        opacity: 0;
+    }
+
+@-webkit-keyframes scaleIn {
+  50% {
+    transform: scaleX(0.5);
+  }
+  60% {
+    transform: scaleX(0.55);
+  }
+  80% {
+    transform: scaleX(0.75);
+  }
+   100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes scaleIn {
+  50% {
+    transform: scaleX(0.5);
+  }
+  60% {
+    transform: scaleX(0.55);
+  }
+  80% {
+    transform: scaleX(0.75);
+  }
+   100% {
+    transform: scaleX(1);
+  }
+}
+    @mixin aniScaleIn () {
+        transform:scaleX(0);
+        transform-origin: left;
+        pointer-events: none;
+        -webkit-animation: scaleIn 2s 0.4s 1 forwards cubic-bezier(0.22, 0.45, 0.24, 1);
+        animation: scaleIn 2s 0.4s 1 forwards cubic-bezier(0.22, 0.45, 0.24, 1); 
+    }
+
+
+    @-webkit-keyframes breathe {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(0.95);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @keyframes breathe {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(0.95);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+        @mixin aniBreathe() {
+            transform: scale(1);
+            transform-origin:50% 50%;
+            -webkit-animation: breathe 6s 1s infinite cubic-bezier(0,0,0,0);
+            animation: breathe 6s 1s infinite cubic-bezier(0,0,0,0); 
+        }
+
+
+        @-webkit-keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+            @mixin aniFloat() {
+                transform: translateY(0);
+                transform-origin:50% 50%;
+                -webkit-animation: float 5s 1s infinite cubic-bezier(0.12, 0.45, 0.24, 0.7);
+                animation: float 5s 1s infinite cubic-bezier(0.12, 0.45, 0.24, 0.7); 
+            }
+    
+
+
+
+
+// Mixins
+@mixin transition-all() {
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+@mixin background-cover() {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@mixin button-variant($color, $background, $border) {
+    color: $color;
+    border-color: $border;
+    background-color: $background;
+    &:focus,
+    &.focus {
+        color: $color;
+        border-color: lighten($color, $amount)($border, 25%);
+        background-color: lighten($background, 10%);
+    }
+    &:hover {
+        color: $color;
+        border-color: lighten($border, 12%);
+        background-color: lighten($background, 10%);
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        color: $color;
+        border-color: lighten($border, 12%);
+        background-color: lighten($background, 10%);
+        &:hover,
+        &:focus,
+        &.focus {
+            color: $color;
+            border-color: lighten($border, 25%);
+            background-color: lighten($background, 17%);
+        }
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus,
+        &.focus {
+            border-color: $border;
+            background-color: $background;
+        }
+    }
+    .badge {
+        color: $background;
+        background-color: $color;
+    }
+}
+
+
+@mixin vertical-center($position: relative) {
+    position: $position;
+    top: 50%;
+    -webkit-transform: perspective(1px) translateY(-50%);
+    -moz-transform: perspective(1px) translateY(-50%);
+    transform: perspective(1px) translateY(-50%);
+}
+
+@mixin heading-font {
+    font-family: 'Press Start 2P', cursive;
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin body-font {
+    font-family: 'Inter', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 300;
+}
+
+@mixin alt-font {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase !important;
+}
+
+@mixin arrow {
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 15px;
+}
+
+    .down-arrow {
+        @include arrow();
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    .up-arrow {
+        @include arrow();
+        transform: rotate(320deg);
+        -webkit-transform: rotate(320deg);
+    }
+
+@mixin iridescent-bkg {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eae8cf+0,c4bad1+25,88c9d4+45,7dc8bf+60,a8b2a3+80,60c4b9+100 */
+    background: #eae8cf; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #eae8cf 0%, #c4bad1 25%, #88c9d4 45%, #7dc8bf 60%, #a8b2a3 80%, #60c4b9 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #eae8cf 0%,#c4bad1 25%,#88c9d4 45%,#7dc8bf 60%,#a8b2a3 80%,#60c4b9 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #eae8cf 0%,#c4bad1 25%,#88c9d4 45%,#7dc8bf 60%,#a8b2a3 80%,#60c4b9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eae8cf', endColorstr='#60c4b9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */}

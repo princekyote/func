@@ -1,0 +1,397 @@
+body.view-meta {
+    .func-stage-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+body.select-nft {
+    .nft-selector {
+        transform: translateY(0vh);
+    }
+}
+
+header {
+    width:94vw;
+    padding:4vh 3vw;
+    text-align:center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	align-content: stretch;
+    nav {
+        display:inline-block;
+        float:left;
+        width:40%;
+        text-align: left;
+        .what-is-this {
+            a {
+                display:inline-block;
+                /*display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                align-content: center;*/
+                i {
+                    display:inline-block;
+                    width:23px;
+                    margin-right:6px;
+                }
+                span {
+                    display: inline-block;
+                    margin-top: -1px;
+                }
+            }
+        }
+        a {
+            color:$gray-light;
+        }
+    }
+    .func-logo {
+        position:relative;
+        margin-right:33px;
+        svg {
+            display:inline-block;
+        }
+        span {
+            display: inline-block;
+        }
+        .func-logo-wordmark {
+            width:78px;
+        }
+        .func-logo-icon {
+            position: absolute;
+            right:-33px;
+            top:-1px;
+            background-image:url("../img/emoji-gear.png");
+            background-repeat: no-repeat;
+            background-size:contain;
+            background-position: center;
+            width:27px;
+            height:27px;
+            @include fade;
+        }
+        &:hover {
+            .func-logo-icon {
+                transform: rotate(360deg);
+            }
+        }
+    }
+    
+    .session-user {
+        float:right;
+        width:40%;
+        text-align: right;
+    }
+    
+    .func-logo{
+        svg {
+            max-height:24px;
+        }
+    }
+    .connect {
+        @include alt-font;
+        font-size:11px;
+        padding:10px 17px 9px;
+        border-radius:30px;
+        
+        &:hover, &:active {
+            color:#fff;
+            background-color:#000;
+        }
+    }
+    .user {
+        display:none;
+    }
+}
+
+
+
+.func-wrapper {
+    width:100%;
+    margin:0 auto;
+}
+.func-stage {
+    width:94vw;
+    height:70vh;
+    max-width:800px;
+    margin:0 auto;
+    padding: 0;
+    text-align: center;
+    position: relative;
+
+    &:hover {
+        .func-stage-flip {
+            opacity:1;
+        }
+    }
+    &:active {
+        .func-stage-inner {
+            transform: rotateY(180deg);
+        }
+    }
+    .func-stage-inner {
+        position: relative;
+        width:100%;
+        height:100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        .func-stage-back, .func-stage-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top:0;
+            bottom:0;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            background-color:#f4f4f4;
+            border-radius:50px;
+            cursor:pointer;
+            overflow: hidden;
+        }
+        .func-stage-front {
+            margin:0;
+            padding: 0;
+            overflow:hidden;
+            display:flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            .stage-nft-media {
+                margin:5vh 5vw;
+                img {
+                    max-height:60vh;
+                    max-width:100%;
+                    pointer-events: none;
+                }
+           }
+        }
+        .func-stage-back {
+            background-color:#f4f4f4;
+            width:100%;
+            height:calc(100% - 10vh);
+            padding:5vh 0;
+            transform: rotateY(180deg);
+            .nft-title {
+                @include heading-font;
+                font-size:1.3em;
+            }
+            .nft-creator {
+                margin-top:10px;
+            }
+            .nft-metadata {
+                margin:3vh auto 6vh;
+                max-width:400px;
+                ul {
+                    text-align:right;
+                    li {
+                        width:100%;
+                        display:block;
+                        margin-bottom:2vh;
+                        padding:5px 0;   
+                        border-bottom:solid 1px #bbb;
+                        label {
+                            float:left;
+                        }
+                        span {
+                            font-weight:700;
+                        }
+                    }
+                }
+            }
+            .nft-opensea-link {
+                display: inline-block;
+                border-bottom: dashed 1px #000 ;
+                padding-bottom:4px;
+                &:hover {}
+            }
+        }
+    }
+}
+
+.btn-eject {
+    position:absolute;
+    bottom:5vh;
+    left:4vw;
+    height:58px;
+    display:inline-block;
+    width:calc(100% - 8vw);
+    padding:10px 0;
+    background-color:#fff;
+    border-radius:10px;
+    color:#bbb;
+    border:solid 1px #bbb;
+    cursor:pointer;
+    pointer-events: auto;
+    @include fade;
+    @include alt-font;
+    &:hover, &:active {
+        color:#fff;
+        background-color:#000;
+        border-color:#000;
+    }
+    &:hover {
+       
+    }
+    &:active {
+        transform: scale(0.97);
+        background-color:#222;
+    }
+}
+
+.func-stage-flip {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:#f4f4f4da;
+    opacity:0;
+    display:flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    @include fade;
+    span {
+        width:40%;
+        font-size:3em;
+    }
+}
+
+.func-action {
+    width:90vw;
+    max-width:720px;
+    margin:2vh auto;
+    text-align: center;
+    .func-action-prev, .func-action-next {
+        display:inline-block;
+        width:40px;
+        cursor:pointer;
+        @include fade;
+        &:hover {
+            transform: scale(1.05);
+        }
+        &:active {
+            transform: scale(0.97);
+            border-color:#222;
+        }
+    }
+    .func-action-prev {
+        float:left;
+    }
+    .func-action-next {
+        float:right;
+    }
+    .func-action-do {
+        display:inline-block;
+        width: calc(90% - 80px);
+        height:58px;
+        background-color:#f4f4f4;
+        border-radius:10px;
+        cursor:pointer;
+        @include alt-font;
+        @include fade;
+        &:hover, &:active {
+            color:#fff;
+            background-color:#000;
+        }
+        &:active {
+            transform: scale(0.97);
+            background-color:#222;
+        }
+    }
+}
+
+
+
+
+#sidebar {
+    display: none;
+}
+
+#func-stage-back {
+    display:none;
+}
+
+.nft-selector {
+    position:fixed;
+    display:flex;
+    flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    transform: translateY(100vh);
+    background-color:#111;
+    text-align:center;
+    h1 {
+        color:#fff;
+    }
+    .close {
+        position:absolute;
+        top:3vh;
+        right:5vw;
+        color:#fff;
+        cursor: pointer;
+        @include alt-font;
+        font-size:14px;
+    }
+    .nft-selector-inner {
+        max-width:800px;
+        margin:0 auto;
+        .filters {
+            display:block;
+            width:calc(100% - 4vw);
+            padding:10px 2vw;
+            .sort-by {
+                
+            }
+        }
+        .nft-list {
+            width:calc(100% - 4vw);
+            padding:0 2vw 10px;
+            text-align:center;
+            ul {
+                display:inline-block;
+                margin:0 auto;
+                li {
+                    width:200px;
+                    display:inline-block;
+                    color:#fff;
+                    margin-bottom:20px;
+                    img {
+                        max-width:100%;
+                        @include fade;
+                    }
+                    &:hover {
+                        img {
+                            transform: scale(1.02);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+footer {
+    display:block;
+    width:100%;
+    padding:0 0 30px;
+    text-align:center;
+    color:$gray-light;
+}
