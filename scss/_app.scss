@@ -10,6 +10,15 @@ body.select-nft {
     }
 }
 
+.logged-in header {
+    .connect {
+        display:none !important;
+    }
+    .user {
+        display:inline-block
+    }
+}
+
 header {
     width:94vw;
     padding:4vh 3vw;

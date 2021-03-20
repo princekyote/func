@@ -28,8 +28,8 @@
 
   <meta name="theme-color" content="#fafafa">
 </head>
-<body class="">
-  <div id="app" class="container">
+<body id="app" class="logged-in">
+  <div class="container">
     <header>
       <nav id="nav">
         <ul>
@@ -51,9 +51,9 @@
       </a>
 
       <div class="session-user">
-        <a href="#" class="connect btn">Connect</a>
+        <a href="#" class="connect btn" onclick=";login()">Connect</a>
         <a href="#" class="user">
-          <span class="user-address">0x7Gjkka...</span>
+          <span id="wallet-address" class="user-address">0x7Gjkka...</span>
           <i class="user-avatar"></i>
         </a>
       </div>

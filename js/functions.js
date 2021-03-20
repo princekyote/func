@@ -794,7 +794,7 @@ async function login() {
   persistentProvider = await new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/eb76419055e542d5ab80d33bda1ccf74")
   let accounts = await metamaskProvider.listAccounts()
   signer = metamaskProvider.getSigner(accounts[0])
-  document.getElementById("app").className = ".logged-in"
+  document.getElementById("app").className = "logged-in"
   //ipfs = await Ipfs.create()
 }
 
