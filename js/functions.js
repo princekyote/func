@@ -797,7 +797,7 @@ async function login() {
   metamaskProvider = new ethers.providers.Web3Provider(web3.currentProvider)
   let accounts = await metamaskProvider.listAccounts()
   signer = metamaskProvider.getSigner(accounts[0])
-  document.getElementById("wallet-address").innerHTML = signer._address
+  document.getElementById("wallet-address").innerHTML = ethers.utils.getAddress(signer._address)
   document.getElementById("app").className = "logged-in"
 
   //ipfs = await Ipfs.create()
