@@ -798,7 +798,7 @@ async function login() {
   let accounts = await metamaskProvider.listAccounts()
   signer = metamaskProvider.getSigner(accounts[0])
   document.getElementById("wallet-address").innerHTML = ethers.utils.getAddress(signer._address)
-  document.getElementById("app").className = "logged-in"
+  document.getElementById("app").classList.add('logged-in');
 
   //ipfs = await Ipfs.create()
 }

@@ -8,6 +8,10 @@ $(document).click(function() {
   $('.dropdown-el').removeClass('expanded');
 });
 
+$('.func-stage-flip').click(function(e) {
+  $('.func-stage').toggleClass('flip');
+});
 
-
-
+$('.func-stage-back').click(function(e) {
+  $('.func-stage').toggleClass('flip');
+});

@@ -28,7 +28,7 @@
 
   <meta name="theme-color" content="#fafafa">
 </head>
-<body id="app" class="logged-in">
+<body id="app" class="">
   <div class="container">
     <header>
       <nav id="nav">
@@ -52,9 +52,9 @@
 
       <div class="session-user">
         <a href="#" class="connect btn" onclick=";login()">Connect</a>
-        <a href="#" class="user">
-          <span id="wallet-address" class="user-address">0x7Gjkka...</span>
-          <i class="user-avatar"></i>
+        <a href="#" class="user btn">
+          <span id="wallet-address" class="wallet-address">0x7Gjkka...</span>
+          <i id="wallet-avatar" class="wallet-avatar"></i>
         </a>
       </div>
     </header>
@@ -68,6 +68,7 @@
                 <img src="img/sample1.png">
               </div>
             </div>
+            <div class="func-stage-open-selector"></div>
             <div class="func-stage-flip">
               <span>
                 <svg viewBox="0 0 216 88.6"><path d="M57.5 23h-2.3V0h4.6v20.7h2.3v2.3h2.3v2.3h4.6v-2.3h2.3v-2.3h2.3V0h4.6v23h-2.3v2.3h-2.3v2.3h-2.3v2.3h-2.3v2.3h-4.6v-2.3h-2.3v-2.3h-2.3v-2.3h-2.3V23z"/><path d="M87.3 32.2v-4.6h4.6V4.6h-4.6V0h13.8v4.6h-4.6v23h4.6v4.6H87.3z"/><path d="M133.3 0v4.6H114.9v9.2h13.8v4.6H114.9v9.2h18.4v4.6H110.3V0H133.3z"/><path d="M137.9 0h4.6v25.3h4.6V13.8h4.6v11.5h4.6V0h4.6v27.6h-2.3v2.3h-2.3v2.3h-4.6v-2.3h-4.6v2.3h-4.6v-2.3h-2.3v-2.3h-2.3V0z"/><path d="M4.6 88.6H0V56.5h4.6v4.6h2.3v2.3h2.3v2.3h4.6v-2.3h2.3v-2.3h2.3v-4.6h4.6v32.2h-4.6V68h-2.3v2.3h-2.3v4.6h-4.6v-4.6h-2.3v-2.3H4.6V88.6z"/><path d="M50.6 56.5v4.6H32.2v9.2h13.8v4.6H32.2v9.2h18.4v4.6H27.6V56.5H50.6z"/><path d="M64.3 61.1h-9.2v-4.6h23v4.6h-9.2v27.6h-4.6V61.1z"/><path d="M87.3 88.6h-4.6V65.7h2.3v-2.3h2.3v-2.3h2.3v-2.3h2.3v-2.3h4.6v2.3h2.3v2.3h2.3v2.3h2.3v2.3h2.3v23h-4.6v-9.2H87.3V88.6zM87.3 74.9h13.8v-6.9h-2.3v-2.3h-2.3v-2.3h-4.6v2.3h-2.3v2.3h-2.3V74.9z"/><path d="M110.3 88.6V56.5h18.4v2.3h2.3v2.3h2.3v23h-2.3v2.3h-2.3v2.3H110.3zM114.9 61.1v23h11.5v-2.3h2.3V63.4h-2.3v-2.3H114.9z"/><path d="M142.5 88.6h-4.6V65.7h2.3v-2.3h2.3v-2.3h2.3v-2.3h2.3v-2.3h4.6v2.3h2.3v2.3h2.3v2.3h2.3v2.3h2.3v23h-4.6v-9.2h-13.8V88.6zM142.5 74.9h13.8v-6.9h-2.3v-2.3h-2.3v-2.3h-4.6v2.3h-2.3v2.3h-2.3V74.9z"/><path d="M174.6 61.1h-9.2v-4.6h23v4.6h-9.2v27.6h-4.6V61.1z"/><path d="M197.6 88.6h-4.6V65.7h2.3v-2.3h2.3v-2.3h2.3v-2.3h2.3v-2.3h4.6v2.3h2.3v2.3h2.3v2.3h2.3v2.3h2.3v23h-4.6v-9.2h-13.8V88.6zM197.6 74.9h13.8v-6.9h-2.3v-2.3h-2.3v-2.3h-4.6v2.3h-2.3v2.3h-2.3V74.9z"/></svg>
@@ -183,10 +184,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/func-ui.js"></script>
+  <script src="js/functions.js"> </script>
   <script type="text/javascript" src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
 
-  <script src="js/functions.js"> </script>
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;

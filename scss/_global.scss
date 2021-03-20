@@ -31,8 +31,7 @@ html {
     background-color:$theme-secondary;
 }
 ::selection {
-    color:$theme-primary;
-    background-color:$theme-secondary;
+    background-color:rgba(0,0,0,0);
 }
 
 body {
