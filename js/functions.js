@@ -816,15 +816,26 @@ async function getBalance(nftAddress){
   return(balance)
 }
 
-async function getOwned(nftAddress,ownerAddress){
+async function getOwnedMetaData(nftAddress,ownerAddress) {
+  let ownedMetaData = new Array()
+  let ownedIdsArray = await getOwnedIds(nftAddress,ownerAddress)
+  for (let t = 0;t<ownedIdsArray.length;t++){
+    let metaData = new Object()
+    let metaDataJSON = await getMetaData(nftAddress,t)
+
+  }
+
+}
+
+async function getOwnedIds(nftAddress,ownerAddress){
   let isOwnedArray = new Array()
-  let ownedArray = new Array()
+  let ownedIdsArray = new Array()
 
   let eventslog = await getLogs(nftAddress)
   let highestTokenID = 0
 
   if(eventslog.length==0){
-    return(ownedArray)
+    return(ownedIdsArray)
   }
 
   for (let o = 0;o<eventslog.length;o++){
@@ -841,10 +852,10 @@ async function getOwned(nftAddress,ownerAddress){
 
   for (let s = 0;s<=highestTokenID;s++){
     if(isOwnedArray[s]==true){
-      ownedArray.push(s)
+      ownedIdsArray.push(s)
     }
   }
-  return(ownedArray)
+  return(ownedIdsArray)
 }
 
 async function ipfsLink() {
@@ -869,7 +880,6 @@ async function getLogs(nftAddress) {
 		let log = new Object()
 		let topics = resultT[n].topics
 
-
 		let from = "0x" + topics[1].substring(26)
 		let to = "0x" + topics[2].substring(26)
 		let tokenID = ethers.utils.formatUnits(ethers.BigNumber.from(topics[3]),0)
@@ -878,18 +888,15 @@ async function getLogs(nftAddress) {
 		log.to = ethers.utils.getAddress(to)
 		log.tokenID = parseInt(tokenID)
 
-
     events.push(log)
   }
     console.log(events)
     return(events)
-
 }
 
-async function getMetaData(nftAddress, tokenID) {
+async function getMetaData(nftAddress, tokenId) {
   let contract = new ethers.Contract(nftAddress,ERC721ABI,persistentProvider)
-  let IPFSLink = await contract.tokenURI(tokenID)
-  console.log(IPFSLink)
+  let IPFSLink = await contract.tokenURI(tokenId)
   let IPFSJson = getIPFSJSON(IPFSLink)
   return(IPFSJson)
 }
@@ -898,5 +905,11 @@ function getIPFSJSON(IPFSLink) {
   var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", IPFSLink, false ); // false for synchronous request
     xmlHttp.send( null );
-    return (xmlHttp.responseText);
+    return (JSON.parse(xmlHttp.responseText));
+}
+
+async function displayImage(nftAddress, tokenId,element){
+  let IPFSJson = await getMetaData(nftAddress,tokenId)
+  let imageLink = IPFSJson.image
+  document.getElementById(element).src = imageLink
 }
