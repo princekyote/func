@@ -24,7 +24,7 @@ body.nft-selected {
         display:none !important;
     }
     .user {
-        display:inline-block
+        display:inline-block;
     }
 }
 
@@ -113,7 +113,6 @@ header {
         font-size:11px;
         padding:10px 17px 9px;
         border-radius:30px;
-        
         &:hover, &:active {
             color:#fff;
             background-color:#000;
@@ -121,6 +120,25 @@ header {
     }
     .user {
         display:none;
+        width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color:#f4f4f4;
+        @include alt-font;
+        font-size:11px;
+        padding:10px 17px 9px;
+        border-radius:30px;
+        .wallet-avatar {
+            display:none;
+            width:20px;
+            height:20px;
+            background-color:#e2e2e2;
+        }
+        &:hover, &:active {
+            color:#fff;
+            background-color:#000;
+        }
     }
 }
 
@@ -144,7 +162,7 @@ header {
             opacity:1;
         }
     }
-    &:active, &.flip {
+    &.flip {
         .func-stage-inner {
             transform: rotateY(180deg);
         }
@@ -178,6 +196,10 @@ header {
             justify-content: center;
             align-items: center;
             align-content: center;
+            background-image:url("../img/icon-add.svg");
+            background-position: center;
+            background-size:15%;
+            background-repeat: no-repeat;
             .stage-nft-media {
                 margin:5vh 5vw;
                 img {
@@ -236,7 +258,7 @@ header {
     bottom:5vh;
     left:4vw;
     height:58px;
-    display:inline-block;
+    display:none;
     width:calc(100% - 8vw);
     padding:10px 0;
     background-color:#fff;
@@ -259,6 +281,16 @@ header {
         transform: scale(0.97);
         background-color:#222;
     }
+}
+
+.func-stage-open-selector {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
 }
 
 .func-stage-flip {
