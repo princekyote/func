@@ -872,3 +872,18 @@ async function getLogs(nftAddress) {
     return(events)
 
 }
+
+async function getMetaData(nftAddress, tokenID) {
+  let contract = new ethers.Contract(nftAddress,ERC721ABI,persistentProvider)
+  let IPFSLink = await contract.tokenURI(tokenID)
+  console.log(IPFSLink)
+  let IPFSJson = getIPFSJSON(IPFSLink)
+  return(IPFSJson)
+}
+
+function getIPFSJSON(IPFSLink) {
+  var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", IPFSLink, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return (xmlHttp.responseText);
+}
