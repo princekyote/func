@@ -787,15 +787,27 @@ let ERC721ABI = [
   }
 ]
 
+async function initProvider() {
+  persistentProvider = await new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/eb76419055e542d5ab80d33bda1ccf74")
+}
+
 async function login() {
 
   await ethereum.enable()
   metamaskProvider = new ethers.providers.Web3Provider(web3.currentProvider)
-  persistentProvider = await new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/eb76419055e542d5ab80d33bda1ccf74")
   let accounts = await metamaskProvider.listAccounts()
   signer = metamaskProvider.getSigner(accounts[0])
+  document.getElementById("wallet-address").innerHTML = signer._address
   document.getElementById("app").className = "logged-in"
+
   //ipfs = await Ipfs.create()
+}
+
+async function logout(){
+  document.getElementById("wallet-address").innerHTML = "CONNECT"
+  document.getElementById("app").className = ""
+  metamaskProvider = ""
+  signer = ""
 }
 
 async function getBalance(nftAddress){
