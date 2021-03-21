@@ -11,6 +11,7 @@ let signer
 let ipfs
 
 let RPAddress = "0xE6B01387AA8042C13951335982e5Cd3aa1255389"
+let rariAddress = "0x509fd4cdaa29be7b1fad251d8ea0fca2ca91eb60"
 let dropAddress = "0x07f2c930250F7b448094435Eb291F8E452135274"
 let eventsNFT
 
@@ -946,6 +947,7 @@ async function login() {
   document.getElementById("wallet-address").innerHTML = ethers.utils.getAddress(signer._address)
   document.getElementById("app").classList.add('logged-in');
   await populateImages(RPAddress)
+  //await populateImages(rariAddress)
   //ipfs = await Ipfs.create()
 }
 
