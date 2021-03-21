@@ -15,3 +15,12 @@ $('.func-stage-flip').click(function(e) {
 $('.func-stage-back').click(function(e) {
   $('.func-stage').toggleClass('flip');
 });
+
+$('.func-stage-open-selector').click(function(e) {
+  $('.logged-in').toggleClass('select-nft');
+});
+
+$('.nft-selector-close').click(function(e) {
+  $('.logged-in').toggleClass('select-nft');
+});
+

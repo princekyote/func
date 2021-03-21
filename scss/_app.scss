@@ -196,10 +196,6 @@ header {
             justify-content: center;
             align-items: center;
             align-content: center;
-            background-image:url("../img/icon-add.svg");
-            background-position: center;
-            background-size:15%;
-            background-repeat: no-repeat;
             .stage-nft-media {
                 margin:5vh 5vw;
                 img {
@@ -291,6 +287,10 @@ header {
     left:0;
     right:0;
     bottom:0;
+    background-image:url("../img/icon-add.svg");
+    background-position: center;
+    background-size:15%;
+    background-repeat: no-repeat;
 }
 
 .func-stage-flip {
@@ -391,7 +391,7 @@ header {
     h1 {
         color:#fff;
     }
-    .close {
+    .nft-selector-close {
         position:absolute;
         top:3vh;
         right:5vw;
@@ -423,6 +423,7 @@ header {
                     display:inline-block;
                     color:#fff;
                     margin-bottom:20px;
+                    cursor:pointer;
                     img {
                         max-width:100%;
                         @include fade;
