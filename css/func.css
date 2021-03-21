@@ -305,7 +305,7 @@ body.view-meta .func-stage-inner {
   transform: rotateY(180deg);
 }
 
-body.view-meta .func-stage-flip {
+body.view-meta .func-stage-front {
   opacity: 0;
   pointer-events: none;
 }
