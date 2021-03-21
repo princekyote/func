@@ -620,6 +620,7 @@ header .user:hover, header .user:active {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase !important;
+  font-size: 17px;
 }
 
 .btn-eject:hover, .btn-eject:active {
@@ -660,6 +661,10 @@ header .user:hover, header .user:active {
   right: 0;
   bottom: 0;
   background-color: #f4f4f4da;
+  background-image: url("../img/view-metadata.svg");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center;
   opacity: 0;
   display: none;
   flex-direction: column;
@@ -767,6 +772,7 @@ header .user:hover, header .user:active {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase !important;
+  font-size: 17px;
   moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
