@@ -1160,7 +1160,55 @@ async function approve(nftAddress,operator){
   await contract.setApprovalForAll(operator,true)
 }
 
-async function drop(tokenId,dropTime,Price){
+async function drop(tokenId,minutes,Price){
   let drop = new ethers.Contract(dropAddress,dropABI,signer)
-  await drop.dropit(tokenId,dropTime,Price)
+  let d = Date.now()
+  d = parseInt(d/1000)
+  d = d + minutes*60
+  dropTime = parseInt(d)
+  await drop.dropit(tokenId,dropTime,Price,{gasLimit:500000})
+}
+
+async function buy(tokenId){
+  let drop = new ethers.Contract(dropAddress,dropABI,signer)
+  let price = await drop.getPrice(tokenId)
+  await drop.buy(tokenId,{value:price,gasLimit:300000})
+}
+
+async function getDropTime(tokenId){
+  let drop = new ethers.Contract(dropAddress,dropABI,persistentProvider)
+  let tokenDrop = await drop.tokenDrops(11)
+  let dropTime = tokenDrop.dropTime
+  return(dropTime)
+}
+
+function setCountDownTimer(element) {
+  // Set the date we're counting down to
+var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+  document.getElementById(element).innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is over, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById(element).innerHTML = "EXPIRED";
+  }
+}, 1000);
 }
