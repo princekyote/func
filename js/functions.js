@@ -817,8 +817,9 @@ async function getBalance(nftAddress){
 }
 
 async function populateImages(nftAddress) {
+  console.log("populateImages")
   let ownedIdsArray = await getOwnedIds(nftAddress,signer._address)
-
+  console.log(ownedIdsArray)
   for (let t = 0;t<ownedIdsArray.length;t++){
     let metaData = new Object()
     let metaDataJSON = await getMetaData(nftAddress,t)
@@ -826,16 +827,17 @@ async function populateImages(nftAddress) {
     let name = metaDataJSON.name
     let description = metaDataJSON.description
     let image = metaDataJSON.image
-    addNFT(name, description, image,metaDataJSON)
+    addNFT(metaDataJSON)
   }
 }
 
 function addNFT(MetaDataJSON){
+  console.log("addNFT")
   //add an nft
   let ulist = document.getElementById("portfolio")
   let list = document.createElement("li")
 
-  addEventListener("click", displayMetaData(MetaDataJSON));
+  //addEventListener("click", displayMetaData(MetaDataJSON));
 
   let imageElement = document.createElement("img")
   imageElement.src = MetaDataJSON.image
