@@ -719,9 +719,15 @@ $text-invert: #ffffff;
         display:inline-block;
         color:#000;
     }
-    .drop-image img {
-        max-width:200px;
-        max-height:200px;
-    }
+    
 }
 
+.drop-image {
+    border:solid 1px #bbb;
+    border-radius:10px;
+    img {
+        max-width:100px;
+        max-height:100px;
+        margin:10px;
+    }
+}

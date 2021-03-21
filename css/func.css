@@ -1070,8 +1070,14 @@ form .btn-submit {
   color: #000;
 }
 
-form .drop-image img {
-  max-width: 200px;
-  max-height: 200px;
+.drop-image {
+  border: solid 1px #bbb;
+  border-radius: 10px;
+}
+
+.drop-image img {
+  max-width: 100px;
+  max-height: 100px;
+  margin: 10px;
 }
 /*# sourceMappingURL=func.css.map */
