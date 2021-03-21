@@ -132,7 +132,7 @@
         <section class="func-action">
           <div class="func-action-slider ">
             <div class="func-action-do">
-              <button class="func-action-do">Inspect</button>
+              <button id="btn-func-inspect" class="func-action-do">Inspect</button>
             </div>
           </div>
         </section>
@@ -141,13 +141,12 @@
       <section id="func-stage" class="func-stage">
         <div class="func-stage-inner">
           <div class="func-stage-front">
-            <div>
-              <h5>Schedule a drop for this NFT</h5>
-            </div>
-            <div id="drop-image" class="drop-image">
-              <img src="img/sample1.png">
-            </div>
             <form>
+              <div class='fieldset'>
+                <div id="drop-image" class="drop-image">
+                  <img src="img/sample1.png">
+                </div>
+              </div>
               <div class='fieldset'>
                 <label for='text1'>Price</label>
                 <input type='text' id='text1' placeholder='Set a price in ETH'/>

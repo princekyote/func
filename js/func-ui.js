@@ -28,7 +28,7 @@ $('.nft-selector-close').click(function(e) {
   $('.logged-in').toggleClass('select-nft');
 });
 
-$('.func-action-do').click(function(e) {
+$('#btn-func-inspect').click(function(e) {
   $('.logged-in').toggleClass('inspect');
 });
 
