@@ -851,7 +851,7 @@ function addNFT(MetaDataJSON){
 function displayMetaData(MetaDataJSON){
   console.log("displayMetaData")
   document.getElementById("nftImage").src = MetaDataJSON.image
-
+  document.getElementById("")
   let logged_in = document.querySelector('.logged-in')
   logged_in.toggleClass('nft-selected')
 
