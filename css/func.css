@@ -594,6 +594,20 @@ header .user:hover, header .user:active {
   font-weight: 700;
 }
 
+.func-stage .func-stage-inner .func-stage-back .nft-metadata ul li #meta-contract {
+  display: inline-block;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+}
+
+.func-stage .func-stage-inner .func-stage-back .nft-metadata .meta-description {
+  text-align: left;
+  line-height: 1.3em;
+}
+
 .func-stage .func-stage-inner .func-stage-back .nft-opensea-link {
   display: inline-block;
   border-bottom: dashed 1px #000;

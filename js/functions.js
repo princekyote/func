@@ -12,6 +12,10 @@ let ipfs
 
 let RPAddress = "0xE6B01387AA8042C13951335982e5Cd3aa1255389"
 
+let eventsNFT
+
+let network
+
 let ERC721ABI = [
   {
     "anonymous": false,
@@ -788,6 +792,7 @@ let ERC721ABI = [
 ]
 
 async function initProvider() {
+  network = "rinkeby"
   persistentProvider = await new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io/v3/eb76419055e542d5ab80d33bda1ccf74")
 }
 
@@ -827,17 +832,21 @@ async function populateImages(nftAddress) {
     let name = metaDataJSON.name
     let description = metaDataJSON.description
     let image = metaDataJSON.image
-    addNFT(metaDataJSON)
+    let mintDate = await getDate(eventsNFT[t].blockNumber)
+
+    addNFT(metaDataJSON,t,nftAddress,mintDate)
   }
 }
 
-function addNFT(MetaDataJSON){
+function addNFT(MetaDataJSON,t,nftAddress,mintDate){
   console.log("addNFT")
   //add an nft
   let ulist = document.getElementById("portfolio")
   let list = document.createElement("li")
+  
+  
 
-  list.addEventListener("click", function(){displayMetaData(MetaDataJSON),false});
+  list.addEventListener("click", function(){displayMetaData(MetaDataJSON,t,nftAddress,mintDate),false});
 
   let imageElement = document.createElement("img")
   imageElement.src = MetaDataJSON.image
@@ -850,12 +859,37 @@ function addNFT(MetaDataJSON){
   ulist.appendChild(list)
 }
 
-function displayMetaData(MetaDataJSON){
-  console.log("displayMetaData")
+function displayMetaData(MetaDataJSON,t,nftAddress,mintDate){
+  console.log("displayMetaDatas")
+  console.log(MetaDataJSON)
   document.getElementById("nftImage").src = MetaDataJSON.image
   //document.getElementById("")
+
+  let tokenID = t
+  let name = MetaDataJSON.name
+  let description = MetaDataJSON.description
+  let Blockchain = "Ethereum"
+  let Platform = "Independent"
+  let ContractAddressLink = "https://" + network + ".etherscan.io/address/" + nftAddress
+
+  document.getElementById("meta-tokenID").innerHTML = tokenID
+  document.getElementById("meta-name").innerHTML = name
+  document.getElementById("meta-description").innerHTML = description
+  document.getElementById("meta-project").innerHTML = project
+  document.getElementById("meta-date").innerHTML = mintDate
+  document.getElementById("meta-blockchain").innerHTML = Blockchain
+  document.getElementById("meta-platform").innerHTML = Platform
+  document.getElementById("meta-contract").innerHTML = nftAddress
+  document.getElementById("meta-contract").href = ContractAddressLink
+
+
   let logged_in = document.querySelector('.logged-in')
   logged_in.classList.toggle('select-nft')
+  logged_in.classList.toggle('nft-selected')
+}
+
+
+async function getPlatform() {
 
 }
 
@@ -918,6 +952,7 @@ async function getLogs(nftAddress) {
 	for (n=0;n<resultT.length;n++){
 		let log = new Object()
 		let topics = resultT[n].topics
+    console.log(resultT[n])
 
 		let from = "0x" + topics[1].substring(26)
 		let to = "0x" + topics[2].substring(26)
@@ -926,11 +961,24 @@ async function getLogs(nftAddress) {
 		log.from = ethers.utils.getAddress(from)
 		log.to = ethers.utils.getAddress(to)
 		log.tokenID = parseInt(tokenID)
+    log.blockNumber = resultT[n].blockNumber
+
 
     events.push(log)
   }
     console.log(events)
+    eventsNFT = new Array()
+    eventsNFT = events
     return(events)
+}
+
+async function getDate(blockNumber) {
+  let block = await persistentProvider.getBlock(blockNumber)
+  let timestamp = block.timestamp
+  let date = new Date(timestamp*1000)
+  let split = date.toString().split(' ')
+  date = split[0] + ' ' + split[1] + ' ' +  split[2] + ' ' + split[3];
+  return(date)
 }
 
 async function getMetaData(nftAddress, tokenId) {

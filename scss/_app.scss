@@ -257,7 +257,19 @@ header {
                         span {
                             font-weight:700;
                         }
+                        #meta-contract {
+                            display:inline-block;
+                            width:200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            font-weight:700;
+                        }
                     }
+                }
+                .meta-description {
+                    text-align: left;
+                    line-height: 1.3em;
                 }
             }
             .nft-opensea-link {
