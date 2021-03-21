@@ -496,6 +496,7 @@ header {
     perspective: 1200px;
     background-color:#222;
     background: linear-gradient(to bottom, #222222, #111111);
+    @include fade;
     img {
         height: 95vh;
         display: block;
@@ -509,14 +510,12 @@ header {
         position:absolute;
         top:3vh;
         right:5vw;
-        color:#333;
+        color:#444;
         cursor: pointer;
         @include fade;
         @include alt-font;
         font-size:14px;
-    }
-    &:hover {
-        .nft-inspector-close {
+        &:hover {
             color:#fff;
         }
     }

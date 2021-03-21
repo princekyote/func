@@ -853,6 +853,8 @@ header .user:hover, header .user:active {
   perspective: 1200px;
   background-color: #222;
   background: linear-gradient(to bottom, #222222, #111111);
+  moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
 }
 
 #nft-inspector img {
@@ -867,7 +869,7 @@ header .user:hover, header .user:active {
   position: absolute;
   top: 3vh;
   right: 5vw;
-  color: #333;
+  color: #444;
   cursor: pointer;
   moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
@@ -878,7 +880,7 @@ header .user:hover, header .user:active {
   font-size: 14px;
 }
 
-#nft-inspector:hover .nft-inspector-close {
+#nft-inspector .nft-inspector-close:hover {
   color: #fff;
 }
 
