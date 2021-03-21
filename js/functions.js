@@ -833,20 +833,21 @@ async function populateImages(nftAddress) {
     let description = metaDataJSON.description
     let image = metaDataJSON.image
     let mintDate = await getDate(eventsNFT[t].blockNumber)
+    let project = await getProject(nftAddress)
 
-    addNFT(metaDataJSON,t,nftAddress,mintDate)
+    addNFT(metaDataJSON,t,nftAddress,mintDate,project)
   }
 }
 
-function addNFT(MetaDataJSON,t,nftAddress,mintDate){
+function addNFT(MetaDataJSON,t,nftAddress,mintDate,project){
   console.log("addNFT")
   //add an nft
   let ulist = document.getElementById("portfolio")
   let list = document.createElement("li")
-  
-  
 
-  list.addEventListener("click", function(){displayMetaData(MetaDataJSON,t,nftAddress,mintDate),false});
+
+
+  list.addEventListener("click", function(){displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project),false});
 
   let imageElement = document.createElement("img")
   imageElement.src = MetaDataJSON.image
@@ -859,7 +860,7 @@ function addNFT(MetaDataJSON,t,nftAddress,mintDate){
   ulist.appendChild(list)
 }
 
-function displayMetaData(MetaDataJSON,t,nftAddress,mintDate){
+function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
   console.log("displayMetaDatas")
   console.log(MetaDataJSON)
   document.getElementById("nftImage").src = MetaDataJSON.image
@@ -889,8 +890,17 @@ function displayMetaData(MetaDataJSON,t,nftAddress,mintDate){
 }
 
 
-async function getPlatform() {
-
+async function getProject(nftAddress) {
+  let contract = new ethers.Contract(nftAddress,ERC721ABI,persistentProvider)
+  let project
+  try{
+    let contractURI = await contract.contractURI()
+    let contractMetaData = getIPFSJSON(contractURI)
+    project = contractMetaData.name
+  } catch {
+    project = "unknown"
+  }
+  return(project)
 }
 
 async function displayImage(nftAddress, tokenId,element){
