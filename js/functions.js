@@ -11,7 +11,7 @@ let signer
 let ipfs
 
 let RPAddress = "0xE6B01387AA8042C13951335982e5Cd3aa1255389"
-
+let dropAddress = "0x07f2c930250F7b448094435Eb291F8E452135274"
 let eventsNFT
 
 let network
@@ -790,6 +790,145 @@ let ERC721ABI = [
     "type": "function"
   }
 ]
+let dropABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "buy",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_dropTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "dropit",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_tokenID",
+				"type": "uint256"
+			}
+		],
+		"name": "getPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_dropper",
+				"type": "address"
+			}
+		],
+		"name": "hasRaribleNFT",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "_calldata",
+				"type": "bytes"
+			}
+		],
+		"name": "onERC721Received",
+		"outputs": [
+			{
+				"internalType": "bytes4",
+				"name": "",
+				"type": "bytes4"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenDrops",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "dropTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "dropper",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
 
 async function initProvider() {
   network = "rinkeby"
@@ -1014,4 +1153,14 @@ function getIPFSJSON(IPFSLink) {
 async function destroy(tokenId,nftAddress){
   let contract = new ethers.Contract(nftAddress,ERC721ABI,signer)
   await contract.transferFrom(signer._address,"0x0000000000000000000000000000000000000000",tokenId,{gasLimit:300000})
+}
+
+async function approve(nftAddress,operator){
+  let contract = new ethers.Contract(nftAddress,ERC721ABI,signer)
+  await contract.setApprovalForAll(operator,true)
+}
+
+async function drop(tokenId,dropTime,Price){
+  let drop = new ethers.Contract(dropAddress,dropABI,signer)
+  await drop.dropit(tokenId,dropTime,Price)
 }
