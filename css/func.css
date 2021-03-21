@@ -308,6 +308,14 @@ body.nft-selected .func-stage-flip {
   display: flex;
 }
 
+body.nft-selected .func-stage-open-selector {
+  display: none;
+}
+
+body.nft-selected .btn-eject {
+  display: block;
+}
+
 .logged-in .connect {
   display: none !important;
 }
@@ -724,6 +732,7 @@ header .user:hover, header .user:active {
 
 .nft-selector h1 {
   color: #fff;
+  margin-bottom: 30px;
 }
 
 .nft-selector .nft-selector-close {

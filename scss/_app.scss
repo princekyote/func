@@ -17,6 +17,12 @@ body.nft-selected {
     .func-stage-flip {
         display:flex;
     }
+    .func-stage-open-selector {
+        display:none;
+    }
+    .btn-eject {
+        display:block;
+    }
 }
 
 .logged-in {
@@ -391,6 +397,7 @@ header {
     @include fadeSlow;
     h1 {
         color:#fff;
+        margin-bottom:30px;
     }
     .nft-selector-close {
         position:absolute;
