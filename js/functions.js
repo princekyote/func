@@ -1037,8 +1037,6 @@ async function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
   let logged_in = document.querySelector('.logged-in')
   logged_in.classList.toggle('select-nft')
   logged_in.classList.toggle('nft-selected')
-
-  await setCountDownTimer()
 }
 
 
