@@ -24,3 +24,12 @@ $('.nft-selector-close').click(function(e) {
   $('.logged-in').toggleClass('select-nft');
 });
 
+$('.nft').click(function(e) {
+  $('.logged-in').toggleClass('select-nft');
+  $('.logged-in').toggleClass('nft-selected');
+});
+
+$('.btn-eject').click(function(e) {
+  $('.logged-in').toggleClass('nft-selected');
+});
+
