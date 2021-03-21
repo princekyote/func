@@ -388,6 +388,7 @@ header {
     transform: translateY(100vh);
     background-color:#111;
     text-align:center;
+    @include fadeSlow;
     h1 {
         color:#fff;
     }
@@ -404,7 +405,7 @@ header {
         max-width:800px;
         margin:0 auto;
         .filters {
-            display:block;
+            display:none;
             width:calc(100% - 4vw);
             padding:10px 2vw;
             .sort-by {
@@ -426,6 +427,7 @@ header {
                     cursor:pointer;
                     img {
                         max-width:100%;
+                        margin-bottom:6px;
                         @include fade;
                     }
                     &:hover {

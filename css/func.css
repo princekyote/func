@@ -718,6 +718,8 @@ header .user:hover, header .user:active {
   transform: translateY(100vh);
   background-color: #111;
   text-align: center;
+  moz-transition: all 0.9s cubic-bezier(0.62, 0.28, 0.23, 0.99);
+  transition: all 0.9s cubic-bezier(0.62, 0.28, 0.23, 0.99);
 }
 
 .nft-selector h1 {
@@ -743,7 +745,7 @@ header .user:hover, header .user:active {
 }
 
 .nft-selector .nft-selector-inner .filters {
-  display: block;
+  display: none;
   width: calc(100% - 4vw);
   padding: 10px 2vw;
 }
@@ -769,6 +771,7 @@ header .user:hover, header .user:active {
 
 .nft-selector .nft-selector-inner .nft-list ul li img {
   max-width: 100%;
+  margin-bottom: 6px;
   moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
