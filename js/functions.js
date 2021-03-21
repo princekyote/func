@@ -799,7 +799,7 @@ async function login() {
   signer = metamaskProvider.getSigner(accounts[0])
   document.getElementById("wallet-address").innerHTML = ethers.utils.getAddress(signer._address)
   document.getElementById("app").classList.add('logged-in');
-
+  await populateImages(RPAddress)
   //ipfs = await Ipfs.create()
 }
 
