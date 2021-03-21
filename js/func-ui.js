@@ -29,6 +29,14 @@ $('.nft-selector-close').click(function(e) {
   $('.logged-in').toggleClass('select-nft');
 });
 
+$('.func-action-do').click(function(e) {
+  $('.logged-in').toggleClass('inspect');
+});
+
+$('.nft-inspector-close').click(function(e) {
+  $('.logged-in').toggleClass('inspect');
+});
+
 $('.nft').click(function(e) {
   $('.logged-in').toggleClass('select-nft');
   $('.logged-in').toggleClass('nft-selected');
@@ -40,4 +48,30 @@ $('.btn-eject').click(function(e) {
   e.stopPropagation();
 });
 
-$('.func-action-do').slick();
+
+
+
+
+function hoverImage(e) {
+  
+  const inMaxX = e.target.width;
+  const inMaxY = e.target.height;
+  
+  const xMapped = (map(e.offsetX, 0, inMaxX, -1, 1)); 
+  const yMapped = (map(e.offsetY, 0, inMaxY, 1, -1));
+  
+  e.target.style.transform = "rotate3d("+yMapped+","+xMapped+",0,10deg)";
+}
+
+function leaveImage(e) {
+    e.target.style.transform = "rotate3d(0,0,0,10deg)";  
+    console.log("out");
+}
+
+// Mapping function
+function map (num, in_min, in_max, out_min, out_max) {
+  return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+document.querySelector('.inspector-image').addEventListener('mousemove', hoverImage);
+document.querySelector('.inspector-image').addEventListener('mouseleave', leaveImage);

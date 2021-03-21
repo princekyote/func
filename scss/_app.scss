@@ -2,6 +2,10 @@ body.view-meta {
     .func-stage-inner {
         transform: rotateY(180deg);
     }
+    .func-stage-flip {
+        opacity:0;
+        pointer-events: none;
+    }
 }
 
 body.select-nft {
@@ -27,6 +31,13 @@ body.nft-selected {
     .func-action {
         opacity:1;
         pointer-events:auto;
+    }
+}
+
+body.inspect {
+    .nft-inspector {
+        opacity:1 !important;
+        pointer-events:auto !important;
     }
 }
 
@@ -467,7 +478,49 @@ header {
 }
 
 
-
+#nft-inspector {
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    opacity:0;
+    pointer-events:none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+    perspective: 1200px;
+    background-color:#222;
+    background: linear-gradient(to bottom, #222222, #111111);
+    img {
+        height: 95vh;
+        display: block;
+        margin: 2.5vh auto;
+        -webkit-box-shadow: 2px 2px 5px 0px     rgba(0,0,0,0.25);
+        -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+        box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+        transition: all 0.15s ease-in-out;
+    }
+    .nft-inspector-close {
+        position:absolute;
+        top:3vh;
+        right:5vw;
+        color:#333;
+        cursor: pointer;
+        @include fade;
+        @include alt-font;
+        font-size:14px;
+    }
+    &:hover {
+        .nft-inspector-close {
+            color:#fff;
+        }
+    }
+}
 
 #sidebar {
     display: none;
