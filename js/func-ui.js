@@ -1,3 +1,8 @@
+$(document).ready(function(){
+  $('.slider').bxSlider();
+});
+
+
 $('.dropdown-el').click(function(e) {
   e.preventDefault();
   e.stopPropagation();
@@ -35,3 +40,4 @@ $('.btn-eject').click(function(e) {
   e.stopPropagation();
 });
 
+$('.func-action-do').slick();

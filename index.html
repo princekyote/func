@@ -88,6 +88,11 @@
           <div class="func-stage-back">
             <div id="meta-name" class="nft-title">Title</div>
             <div id="meta-project" class="nft-creator"><a href="#">Dreeem</a></div>
+            <div class="meta-description">
+              <p id="meta-description" class="meta-description-inner">
+                This is the description of the NFT. It could be short, it could be long. We'll probably keep it short and attach a link to View on Opensea in the description after the ellipses.
+              </p>
+            </div>
             <div class="nft-metadata">
               <ul>
                 <li>
@@ -111,11 +116,6 @@
                   <a href="" target="_blank" id="meta-contract">Value</a>
                 </li>
               </ul>
-              <div class="meta-description">
-                <p id="meta-description" class="meta-description-inner">
-                  This is the description of the NFT. It could be short, it could be long. We'll probably keep it short and attach a link to View on Opensea in the description after the ellipses. <a href="#" class="nft-opensea-link">View on Opensea</a>
-                </p>
-              </div>
             </div>
             <a href="#" class="nft-opensea-link">View on Opensea</a>
             <div>
@@ -129,7 +129,9 @@
         <div class="func-action-prev">
           <svg viewBox="0 0 123.3 180"><polygon points="123.3 180 123.3 0 0 90 "/></svg>
         </div>
-        <button class="func-action-do">Inspect</button>
+        <div class="func-action-slider">
+          <button class="func-action-do">Inspect</button>
+        </div>
         <div class="func-action-next">
           <svg viewBox="0 0 123.3 180"><polygon points="0 0 0 180 123.3 90 "/></svg>
         </div>
@@ -148,7 +150,7 @@
   <section class="nft-selector">
 
     <div class="nft-selector-inner">
-      <h1>Select NFT</h1>
+      <h1>Plug in NFT</h1>
       <div class="nft-selector-close">Close</div>
       <div class="filters">
         <div class="sort-by">
@@ -169,11 +171,7 @@
       </div>
       <div class="nft-list">
         <ul id = "portfolio">
-          <li class="nft">
-            <img src="img/sample1.png"/>
-            <span>Title</span>
-          </li>
-
+          
         </ul>
       </div>
     </div>
@@ -187,6 +185,15 @@
   <script src="js/functions.js"> </script>
   <script type="text/javascript" src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.your-class').slick({
+        setting-name: setting-value
+      });
+    });
+  </script>
+
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>

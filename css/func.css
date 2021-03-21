@@ -570,7 +570,7 @@ header .user:hover, header .user:active {
 }
 
 .func-stage .func-stage-inner .func-stage-back .nft-metadata {
-  margin: 3vh auto 6vh;
+  margin: 3vh auto 3vh;
   max-width: 400px;
 }
 
@@ -581,8 +581,9 @@ header .user:hover, header .user:active {
 .func-stage .func-stage-inner .func-stage-back .nft-metadata ul li {
   width: 100%;
   display: block;
-  margin-bottom: 2vh;
-  padding: 5px 0;
+  margin-bottom: 1.6vh;
+  padding: 4px 0;
+  font-size: 0.9em;
   border-bottom: solid 1px #bbb;
 }
 
@@ -596,20 +597,37 @@ header .user:hover, header .user:active {
 
 .func-stage .func-stage-inner .func-stage-back .nft-metadata ul li #meta-contract {
   display: inline-block;
-  width: 200px;
+  width: 220px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 700;
 }
 
-.func-stage .func-stage-inner .func-stage-back .nft-metadata .meta-description {
+.func-stage .func-stage-inner .func-stage-back .meta-description {
+  display: inline-block;
+  width: 90%;
+  max-width: 360px;
+  margin: 20px auto 0;
+  padding: 20px;
   text-align: left;
   line-height: 1.3em;
+  padding: 20px;
+  border: solid 1px #bbb;
+  border-radius: 10px;
+}
+
+.func-stage .func-stage-inner .func-stage-back .meta-description p {
+  display: inline;
+}
+
+.func-stage .func-stage-inner .func-stage-back .meta-description a {
+  display: inline;
+  font-size: 12px;
 }
 
 .func-stage .func-stage-inner .func-stage-back .nft-opensea-link {
-  display: inline-block;
+  display: none;
   border-bottom: dashed 1px #000;
   padding-bottom: 4px;
 }
@@ -720,11 +738,6 @@ header .user:hover, header .user:active {
 .func-intro .func-intro-inner {
   width: 90%;
   max-width: 460px;
-}
-
-.func-intro .func-intro-inner h1 {
-  font-size: 6vh;
-  margin-top: 0;
   background: -webkit-linear-gradient(left, #912dee, #aed112, #912dee);
   background-size: 1600px 200px;
   -webkit-background-clip: text;
@@ -734,6 +747,11 @@ header .user:hover, header .user:active {
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
+}
+
+.func-intro .func-intro-inner h1 {
+  font-size: 6vh;
+  margin-top: 0;
 }
 
 .func-intro .func-intro-inner p {
@@ -746,7 +764,7 @@ header .user:hover, header .user:active {
   max-width: 720px;
   margin: 2vh auto;
   text-align: center;
-  opacity: 0.2;
+  opacity: 0.1;
   pointer-events: none;
 }
 
@@ -775,10 +793,16 @@ header .user:hover, header .user:active {
   float: right;
 }
 
-.func-action .func-action-do {
+.func-action .func-action-slider {
   display: inline-block;
   width: calc(90% - 80px);
   height: 58px;
+}
+
+.func-action .func-action-do {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
   background-color: #f4f4f4;
   border-radius: 10px;
   cursor: pointer;

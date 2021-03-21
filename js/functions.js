@@ -810,6 +810,7 @@ async function login() {
 
 async function logout(){
   document.getElementById("wallet-address").innerHTML = "CONNECT"
+  document.getElementById("func-stage").classList.remove('flip');
   document.getElementById("app").className = ""
   metamaskProvider = ""
   signer = ""
@@ -869,13 +870,14 @@ function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
   let tokenID = t
   let name = MetaDataJSON.name
   let description = MetaDataJSON.description
+  let project = MetaDataJSON.name
   let Blockchain = "Ethereum"
   let Platform = "Independent"
   let ContractAddressLink = "https://" + network + ".etherscan.io/address/" + nftAddress
 
   document.getElementById("meta-tokenID").innerHTML = tokenID
   document.getElementById("meta-name").innerHTML = name
-  document.getElementById("meta-description").innerHTML = description
+  document.getElementById("meta-description").innerHTML = "&quot;" + description + "&quot;"
   document.getElementById("meta-project").innerHTML = project
   document.getElementById("meta-date").innerHTML = mintDate
   document.getElementById("meta-blockchain").innerHTML = Blockchain
