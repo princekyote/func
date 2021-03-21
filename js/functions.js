@@ -853,6 +853,7 @@ function addNFT(MetaDataJSON,t,nftAddress,mintDate,project){
   let imageElement = document.createElement("img")
   imageElement.src = MetaDataJSON.image
 
+
   let nameElement = document.createElement("span")
   nameElement.innerHTML = MetaDataJSON.name
 
@@ -883,6 +884,8 @@ function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
   document.getElementById("meta-platform").innerHTML = Platform
   document.getElementById("meta-contract").innerHTML = nftAddress
   document.getElementById("meta-contract").href = ContractAddressLink
+
+  document.getElementById("inspector-image").src = MetaDataJSON.image
 
 
   let logged_in = document.querySelector('.logged-in')
