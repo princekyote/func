@@ -816,15 +816,27 @@ async function getBalance(nftAddress){
   return(balance)
 }
 
-async function getOwnedMetaData(nftAddress,ownerAddress) {
-  let ownedMetaData = new Array()
-  let ownedIdsArray = await getOwnedIds(nftAddress,ownerAddress)
+async function populateImages(nftAddress) {
+  let ownedIdsArray = await getOwnedIds(nftAddress,signer._address)
+
   for (let t = 0;t<ownedIdsArray.length;t++){
     let metaData = new Object()
     let metaDataJSON = await getMetaData(nftAddress,t)
-
+    let name = metaDataJSON.name
+    let image = metaDataJSON.image
+    addNFT(name, image)
   }
 
+}
+
+function addNFT(name, image){
+  
+}
+
+async function displayImage(nftAddress, tokenId,element){
+  let IPFSJson = await getMetaData(nftAddress,tokenId)
+  let imageLink = IPFSJson.image
+  document.getElementById(element).src = imageLink
 }
 
 async function getOwnedIds(nftAddress,ownerAddress){
@@ -906,10 +918,4 @@ function getIPFSJSON(IPFSLink) {
     xmlHttp.open( "GET", IPFSLink, false ); // false for synchronous request
     xmlHttp.send( null );
     return (JSON.parse(xmlHttp.responseText));
-}
-
-async function displayImage(nftAddress, tokenId,element){
-  let IPFSJson = await getMetaData(nftAddress,tokenId)
-  let imageLink = IPFSJson.image
-  document.getElementById(element).src = imageLink
 }
