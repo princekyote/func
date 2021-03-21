@@ -13,6 +13,7 @@
   <meta property="og:image" content="">
 
 
+  <link rel="stylesheet" type="text/css" href="js/vendor/slick.css"/>
 
 
   <link rel="manifest" href="site.webmanifest">
@@ -23,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/func.css">
 
@@ -60,83 +61,122 @@
       </div>
     </header>
 
-    <div class="func-wrapper">
+    <div class="func-wrapper slider">
+
+      <div class="func_inspect">
+      
+      
+        <section id="func-stage" class="func-stage">
+          <div class="func-stage-inner">
+            <div class="func-stage-front">
+              <div class="stage-nft-wrapper">
+                <div class="stage-nft-media">
+                  <img id="nftImage"></img>
+                </div>
+              </div>
+              <div class="func-stage-open-selector"></div>
+              <div class="func-intro">
+                <div class="func-intro-inner">
+                  <h1>What<br>the<br>func</h1>
+                  <p>NFTs aren't just pretty. They're also code that can interact with an unlimited number of apps. Func is all about making NFT's functional.
+                  </p>
+                </div>
+              </div>
+              <div class="func-stage-flip">
+                <span>
+                  <!-- <svg viewBox="0 0 216 88.6"><path d="M57.5 23h-2.3V0h4.6v20.7h2.3v2.3h2.3v2.3h4.6v-2.3h2.3v-2.3h2.3V0h4.6v23h-2.3v2.3h-2.3v2.3h-2.3v2.3h-2.3v2.3h-4.6v-2.3h-2.3v-2.3h-2.3v-2.3h-2.3V23z"/><path d="M87.3 32.2v-4.6h4.6V4.6h-4.6V0h13.8v4.6h-4.6v23h4.6v4.6H87.3z"/><path d="M133.3 0v4.6H114.9v9.2h13.8v4.6H114.9v9.2h18.4v4.6H110.3V0H133.3z"/><path d="M137.9 0h4.6v25.3h4.6V13.8h4.6v11.5h4.6V0h4.6v27.6h-2.3v2.3h-2.3v2.3h-4.6v-2.3h-4.6v2.3h-4.6v-2.3h-2.3v-2.3h-2.3V0z"/><path d="M4.6 88.6H0V56.5h4.6v4.6h2.3v2.3h2.3v2.3h4.6v-2.3h2.3v-2.3h2.3v-4.6h4.6v32.2h-4.6V68h-2.3v2.3h-2.3v4.6h-4.6v-4.6h-2.3v-2.3H4.6V88.6z"/><path d="M50.6 56.5v4.6H32.2v9.2h13.8v4.6H32.2v9.2h18.4v4.6H27.6V56.5H50.6z"/><path d="M64.3 61.1h-9.2v-4.6h23v4.6h-9.2v27.6h-4.6V61.1z"/><path d="M87.3 88.6h-4.6V65.7h2.3v-2.3h2.3v-2.3h2.3v-2.3h2.3v-2.3h4.6v2.3h2.3v2.3h2.3v2.3h2.3v2.3h2.3v23h-4.6v-9.2H87.3V88.6zM87.3 74.9h13.8v-6.9h-2.3v-2.3h-2.3v-2.3h-4.6v2.3h-2.3v2.3h-2.3V74.9z"/><path d="M110.3 88.6V56.5h18.4v2.3h2.3v2.3h2.3v23h-2.3v2.3h-2.3v2.3H110.3zM114.9 61.1v23h11.5v-2.3h2.3V63.4h-2.3v-2.3H114.9z"/><path d="M142.5 88.6h-4.6V65.7h2.3v-2.3h2.3v-2.3h2.3v-2.3h2.3v-2.3h4.6v2.3h2.3v2.3h2.3v2.3h2.3v2.3h2.3v23h-4.6v-9.2h-13.8V88.6zM142.5 74.9h13.8v-6.9h-2.3v-2.3h-2.3v-2.3h-4.6v2.3h-2.3v2.3h-2.3V74.9z"/><path d="M174.6 61.1h-9.2v-4.6h23v4.6h-9.2v27.6h-4.6V61.1z"/><path d="M197.6 88.6h-4.6V65.7h2.3v-2.3h2.3v-2.3h2.3v-2.3h2.3v-2.3h4.6v2.3h2.3v2.3h2.3v2.3h2.3v2.3h2.3v23h-4.6v-9.2h-13.8V88.6zM197.6 74.9h13.8v-6.9h-2.3v-2.3h-2.3v-2.3h-4.6v2.3h-2.3v2.3h-2.3V74.9z"/></svg>-->
+                  <img id="nftImage"/></img>
+                </span>
+                <button id="func-eject" class="btn-eject" style="display:none">Eject</button>
+              </div>
+            </div>
+            <div class="func-stage-back">
+              <div id="meta-name" class="nft-title">Title</div>
+              <div id="meta-project" class="nft-creator"><a href="#">Dreeem</a></div>
+              <div class="meta-description">
+                <p id="meta-description" class="meta-description-inner">
+                  This is the description of the NFT. It could be short, it could be long. We'll probably keep it short and attach a link to View on Opensea in the description after the ellipses.
+                </p>
+              </div>
+              <div class="nft-metadata">
+                <ul>
+                  <li>
+                    <label>Token ID</label>
+                    <span id="meta-tokenID">Value</span>
+                  </li>
+                  <li>
+                    <label>Mint Date:</label>
+                    <span id="meta-date">Value</span>
+                  </li>
+                  <li>
+                    <label>Blockchain</label>
+                    <span id="meta-blockchain">Value</span>
+                  </li>
+                  <li>
+                    <label>Platform</label>
+                    <span id="meta-platform">Value</span>
+                  </li>
+                  <li>
+                    <label>Contract</label>
+                    <a href="" target="_blank" id="meta-contract">Value</a>
+                  </li>
+                </ul>
+              </div>
+              <a href="#" class="nft-opensea-link">View on Opensea</a>
+              <div>
+                <button id="func-eject" class="btn-eject">Eject</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="func-action">
+          <div class="func-action-slider ">
+            <div class="func-action-do">
+              <button class="func-action-do">Inspect</button>
+            </div>
+          </div>
+        </section>
+    </div>
+    <div class="func_drop">
       <section id="func-stage" class="func-stage">
         <div class="func-stage-inner">
           <div class="func-stage-front">
-            <div class="stage-nft-wrapper">
-              <div class="stage-nft-media">
-                <img id="nftImage"></img>
-              </div>
-            </div>
-            <div class="func-stage-open-selector"></div>
-            <div class="func-intro">
-              <div class="func-intro-inner">
-                <h1>What<br>the<br>func</h1>
-                <p>NFTs aren't just pretty. They're also code that can interact with an unlimited number of apps. Func is all about making NFT's functional.
-                </p>
-              </div>
-            </div>
-            <div class="func-stage-flip">
-              <span>
-                <!-- <svg viewBox="0 0 216 88.6"><path d="M57.5 23h-2.3V0h4.6v20.7h2.3v2.3h2.3v2.3h4.6v-2.3h2.3v-2.3h2.3V0h4.6v23h-2.3v2.3h-2.3v2.3h-2.3v2.3h-2.3v2.3h-4.6v-2.3h-2.3v-2.3h-2.3v-2.3h-2.3V23z"/><path d="M87.3 32.2v-4.6h4.6V4.6h-4.6V0h13.8v4.6h-4.6v23h4.6v4.6H87.3z"/><path d="M133.3 0v4.6H114.9v9.2h13.8v4.6H114.9v9.2h18.4v4.6H110.3V0H133.3z"/><path d="M137.9 0h4.6v25.3h4.6V13.8h4.6v11.5h4.6V0h4.6v27.6h-2.3v2.3h-2.3v2.3h-4.6v-2.3h-4.6v2.3h-4.6v-2.3h-2.3v-2.3h-2.3V0z"/><path d="M4.6 88.6H0V56.5h4.6v4.6h2.3v2.3h2.3v2.3h4.6v-2.3h2.3v-2.3h2.3v-4.6h4.6v32.2h-4.6V68h-2.3v2.3h-2.3v4.6h-4.6v-4.6h-2.3v-2.3H4.6V88.6z"/><path d="M50.6 56.5v4.6H32.2v9.2h13.8v4.6H32.2v9.2h18.4v4.6H27.6V56.5H50.6z"/><path d="M64.3 61.1h-9.2v-4.6h23v4.6h-9.2v27.6h-4.6V61.1z"/><path d="M87.3 88.6h-4.6V65.7h2.3v-2.3h2.3v-2.3h2.3v-2.3h2.3v-2.3h4.6v2.3h2.3v2.3h2.3v2.3h2.3v2.3h2.3v23h-4.6v-9.2H87.3V88.6zM87.3 74.9h13.8v-6.9h-2.3v-2.3h-2.3v-2.3h-4.6v2.3h-2.3v2.3h-2.3V74.9z"/><path d="M110.3 88.6V56.5h18.4v2.3h2.3v2.3h2.3v23h-2.3v2.3h-2.3v2.3H110.3zM114.9 61.1v23h11.5v-2.3h2.3V63.4h-2.3v-2.3H114.9z"/><path d="M142.5 88.6h-4.6V65.7h2.3v-2.3h2.3v-2.3h2.3v-2.3h2.3v-2.3h4.6v2.3h2.3v2.3h2.3v2.3h2.3v2.3h2.3v23h-4.6v-9.2h-13.8V88.6zM142.5 74.9h13.8v-6.9h-2.3v-2.3h-2.3v-2.3h-4.6v2.3h-2.3v2.3h-2.3V74.9z"/><path d="M174.6 61.1h-9.2v-4.6h23v4.6h-9.2v27.6h-4.6V61.1z"/><path d="M197.6 88.6h-4.6V65.7h2.3v-2.3h2.3v-2.3h2.3v-2.3h2.3v-2.3h4.6v2.3h2.3v2.3h2.3v2.3h2.3v2.3h2.3v23h-4.6v-9.2h-13.8V88.6zM197.6 74.9h13.8v-6.9h-2.3v-2.3h-2.3v-2.3h-4.6v2.3h-2.3v2.3h-2.3V74.9z"/></svg>-->
-                <img id="nftImage"/></img>
-              </span>
-              <button id="func-eject" class="btn-eject" style="display:none">Eject</button>
-            </div>
-          </div>
-          <div class="func-stage-back">
-            <div id="meta-name" class="nft-title">Title</div>
-            <div id="meta-project" class="nft-creator"><a href="#">Dreeem</a></div>
-            <div class="meta-description">
-              <p id="meta-description" class="meta-description-inner">
-                This is the description of the NFT. It could be short, it could be long. We'll probably keep it short and attach a link to View on Opensea in the description after the ellipses.
-              </p>
-            </div>
-            <div class="nft-metadata">
-              <ul>
-                <li>
-                  <label>Token ID</label>
-                  <span id="meta-tokenID">Value</span>
-                </li>
-                <li>
-                  <label>Mint Date:</label>
-                  <span id="meta-date">Value</span>
-                </li>
-                <li>
-                  <label>Blockchain</label>
-                  <span id="meta-blockchain">Value</span>
-                </li>
-                <li>
-                  <label>Platform</label>
-                  <span id="meta-platform">Value</span>
-                </li>
-                <li>
-                  <label>Contract</label>
-                  <a href="" target="_blank" id="meta-contract">Value</a>
-                </li>
-              </ul>
-            </div>
-            <a href="#" class="nft-opensea-link">View on Opensea</a>
             <div>
-              <button id="func-eject" class="btn-eject">Eject</button>
+              <h5>Schedule a drop for this NFT</h5>
             </div>
+            <div id="drop-image" class="drop-image">
+              <img src="img/sample1.png">
+            </div>
+            <form>
+              <div class='fieldset'>
+                <label for='text1'>Price</label>
+                <input type='text' id='text1' placeholder='Set a price in ETH'/>
+              </div>
+              <div class='fieldset'>
+                <label for='text1'>Drop Time</label>
+                <input type='text' id='text1' placeholder='How many hours from now?'/>
+              </div>
+              <div class='fieldset'>
+                <button class="btn-submit" type='submit'>Schedule Drop</button>
+              </div>
+            </form>
+      
           </div>
         </div>
       </section>
-
       <section class="func-action">
-        <div class="func-action-prev">
-          <svg viewBox="0 0 123.3 180"><polygon points="123.3 180 123.3 0 0 90 "/></svg>
-        </div>
-        <div class="func-action-slider">
-          <button class="func-action-do">Inspect</button>
-        </div>
-        <div class="func-action-next">
-          <svg viewBox="0 0 123.3 180"><polygon points="0 0 0 180 123.3 90 "/></svg>
+        <div class="func-action-slider ">
+          <div class="func-action-do">
+            <button class="func-action-do">Drop</button>
+          </div>
         </div>
       </section>
-    </div>
+    </div>    
+</div>
+
+      
+
+      
 
     <footer>
       <span class="copyright">&#169; Func</span>
@@ -184,7 +224,8 @@
     </div>
   </section>
 
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/plugins.js"></script>
@@ -193,6 +234,7 @@
   <script type="text/javascript" src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
 
+  <script type="text/javascript" src="js/vendor/slick.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
@@ -201,7 +243,6 @@
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
   <script>initProvider()</script>
-  <div id ="doesthiswork">holy shit yeah this is working</div>
 </body>
 
 </html>

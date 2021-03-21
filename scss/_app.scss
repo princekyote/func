@@ -28,7 +28,7 @@ body.nft-selected {
     .btn-eject {
         display:block;
     }
-    .func-action {
+    .func-action, .slick-prev, .slick-next {
         opacity:1;
         pointer-events:auto;
     }
@@ -174,7 +174,9 @@ header {
     }
 }
 
-
+.func_inspect {
+    position: relative;
+}
 
 .func-wrapper {
     width:100%;
@@ -308,7 +310,7 @@ header {
     }
 }
 
-.btn-eject {
+.btn-eject, .btn-submit {
     position:absolute;
     bottom:5vh;
     left:4vw;
@@ -427,8 +429,8 @@ header {
 
 .func-action {
     width:90vw;
-    max-width:720px;
-    margin:2vh auto;
+    max-width:580px;
+    margin:2vh auto 0;
     text-align: center;
     opacity:0.1;
     pointer-events:none;
@@ -453,7 +455,7 @@ header {
     }
     .func-action-slider {
         display:inline-block;
-        width: calc(90% - 80px);
+        width: 100%;
         height:58px;
     }
     .func-action-do {
@@ -475,6 +477,43 @@ header {
             background-color:#222;
         }
     }
+}
+
+
+.slick-list, .slick-track, .slick-slide, .slick-slide > div:first-child {
+    height:100%;
+}
+.slick-prev {
+    display: inline-block;
+    width: 40px;
+    height: 58px;
+    cursor: pointer;
+    background-image: url(../img/arrow-left.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 360px);
+    opacity:0;
+    pointer-events:none;
+    z-index:999;
+}
+.slick-next {
+    display: inline-block;
+    width: 40px;
+    height: 58px;
+    cursor: pointer;
+    background-image: url(../img/arrow-right.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    bottom: 0px;
+    right: calc(50% - 360px);
+    opacity:0;
+    pointer-events:none;
+    z-index:999;
 }
 
 
@@ -607,5 +646,82 @@ footer {
 }
 
 
+form {
 
+    // Action
+$action: #fff;
+$action-dark: #53aca9;
+
+// Detail
+$detail: #d5d7de;
+
+// State
+$failure: #e17776;
+$success: #76a7e1;
+
+// Spacing
+$space-xxs: 5px;
+$space-xs: 10px;
+$space-s: 15px;
+$space: 20px;
+$space-l: 25px;
+$space-xl: 30px;
+$space-xxl: 40px;
+
+// Text
+$text: #8f97b7;
+$text-dark: #71728c;
+$text-light: #9ea2b5;
+$text-invert: #ffffff;
+
+    .fieldset + .fieldset,
+    form + form,
+    .message {
+    margin-top: $space;
+    }
+    .fieldset {
+        text-align:right;
+        width:90vw;
+        max-width:480px;
+    }
+
+    label {
+    color: #000;
+    display: block;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: left;
+    display:inline-block;
+    margin-right:10px;
+    float:left;
+    }
+
+    input,
+    textarea,
+    select {
+    border: 1px solid $detail;
+    color: $text-dark;
+    font-size: 100%;
+    padding: $space-s
+    }
+
+    button[ type="submit"] {
+    background: $action;
+    border: 1px solid #bbb;
+    box-shadow: none;
+    color: #bbb;
+    font-size: 87.5%;
+    text-transform: uppercase;
+    }
+    .btn-submit {
+        opacity:1;
+        pointer-events:auto;
+        display:inline-block;
+        color:#000;
+    }
+    .drop-image img {
+        max-width:200px;
+        max-height:200px;
+    }
+}
 

@@ -1,4 +1,6 @@
-
+$(document).ready(function(){
+  $('.slider').slick();
+});
 
 $('.dropdown-el').click(function(e) {
   e.preventDefault();
@@ -45,7 +47,7 @@ $('.btn-eject').click(function(e) {
   e.stopPropagation();
 });
 
-
+$('.func-action-slider').slick();
 
 
 

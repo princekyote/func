@@ -331,7 +331,7 @@ body.nft-selected .btn-eject {
   display: block;
 }
 
-body.nft-selected .func-action {
+body.nft-selected .func-action, body.nft-selected .slick-prev, body.nft-selected .slick-next {
   opacity: 1;
   pointer-events: auto;
 }
@@ -493,6 +493,10 @@ header .user:hover, header .user:active {
   background-color: #000;
 }
 
+.func_inspect {
+  position: relative;
+}
+
 .func-wrapper {
   width: 100%;
   margin: 0 auto;
@@ -642,7 +646,7 @@ header .user:hover, header .user:active {
   padding-bottom: 4px;
 }
 
-.btn-eject {
+.btn-eject, .btn-submit {
   position: absolute;
   bottom: 5vh;
   left: 4vw;
@@ -665,13 +669,13 @@ header .user:hover, header .user:active {
   font-size: 17px;
 }
 
-.btn-eject:hover, .btn-eject:active {
+.btn-eject:hover, .btn-eject:active, .btn-submit:hover, .btn-submit:active {
   color: #fff;
   background-color: #000;
   border-color: #000;
 }
 
-.btn-eject:active {
+.btn-eject:active, .btn-submit:active {
   transform: scale(0.97);
   background-color: #222;
 }
@@ -771,8 +775,8 @@ header .user:hover, header .user:active {
 
 .func-action {
   width: 90vw;
-  max-width: 720px;
-  margin: 2vh auto;
+  max-width: 580px;
+  margin: 2vh auto 0;
   text-align: center;
   opacity: 0.1;
   pointer-events: none;
@@ -805,7 +809,7 @@ header .user:hover, header .user:active {
 
 .func-action .func-action-slider {
   display: inline-block;
-  width: calc(90% - 80px);
+  width: 100%;
   height: 58px;
 }
 
@@ -833,6 +837,44 @@ header .user:hover, header .user:active {
 .func-action .func-action-do:active {
   transform: scale(0.97);
   background-color: #222;
+}
+
+.slick-list, .slick-track, .slick-slide, .slick-slide > div:first-child {
+  height: 100%;
+}
+
+.slick-prev {
+  display: inline-block;
+  width: 40px;
+  height: 58px;
+  cursor: pointer;
+  background-image: url(../img/arrow-left.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  bottom: 0px;
+  left: calc(50% - 360px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.slick-next {
+  display: inline-block;
+  width: 40px;
+  height: 58px;
+  cursor: pointer;
+  background-image: url(../img/arrow-right.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  bottom: 0px;
+  right: calc(50% - 360px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
 }
 
 #nft-inspector {
@@ -978,5 +1020,58 @@ footer {
   padding: 0 0 30px;
   text-align: center;
   color: #848484;
+}
+
+form .fieldset + .fieldset,
+form form + form,
+form .message {
+  margin-top: 20px;
+}
+
+form .fieldset {
+  text-align: right;
+  width: 90vw;
+  max-width: 480px;
+}
+
+form label {
+  color: #000;
+  display: block;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: left;
+  display: inline-block;
+  margin-right: 10px;
+  float: left;
+}
+
+form input,
+form textarea,
+form select {
+  border: 1px solid #d5d7de;
+  color: #71728c;
+  font-size: 100%;
+  padding: 15px;
+}
+
+form button[type="submit"] {
+  background: #fff;
+  border: 1px solid #bbb;
+  box-shadow: none;
+  color: #bbb;
+  font-size: 87.5%;
+  text-transform: uppercase;
+}
+
+form .btn-submit {
+  opacity: 1;
+  pointer-events: auto;
+  display: inline-block;
+  color: #000;
+}
+
+form .drop-image img {
+  max-width: 200px;
+  max-height: 200px;
 }
 /*# sourceMappingURL=func.css.map */
