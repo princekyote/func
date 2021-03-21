@@ -13,7 +13,7 @@ $('.func-stage-flip').click(function(e) {
 });
 
 $('.func-stage-back').click(function(e) {
-  $('.func-stage').toggleClass('flip');
+  $('.func-stage').removeClass('flip');
 });
 
 $('.func-stage-open-selector').click(function(e) {
@@ -31,6 +31,7 @@ $('.nft').click(function(e) {
 
 $('.btn-eject').click(function(e) {
   $('.logged-in').toggleClass('nft-selected');
+  $('.func-stage').removeClass('flip');
   e.stopPropagation();
 });
 
