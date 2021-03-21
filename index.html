@@ -23,7 +23,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/func.css">
 
@@ -88,6 +92,11 @@
           <div class="func-stage-back">
             <div id="meta-name" class="nft-title">Title</div>
             <div id="meta-project" class="nft-creator"><a href="#">Dreeem</a></div>
+            <div class="meta-description">
+              <p id="meta-description" class="meta-description-inner">
+                This is the description of the NFT. It could be short, it could be long. We'll probably keep it short and attach a link to View on Opensea in the description after the ellipses.
+              </p>
+            </div>
             <div class="nft-metadata">
               <ul>
                 <li>
@@ -111,11 +120,6 @@
                   <a href="" target="_blank" id="meta-contract">Value</a>
                 </li>
               </ul>
-              <div class="meta-description">
-                <p id="meta-description" class="meta-description-inner">
-                  This is the description of the NFT. It could be short, it could be long. We'll probably keep it short and attach a link to View on Opensea in the description after the ellipses. <a href="#" class="nft-opensea-link">View on Opensea</a>
-                </p>
-              </div>
             </div>
             <a href="#" class="nft-opensea-link">View on Opensea</a>
             <div>
@@ -129,7 +133,8 @@
         <div class="func-action-prev">
           <svg viewBox="0 0 123.3 180"><polygon points="123.3 180 123.3 0 0 90 "/></svg>
         </div>
-        <button class="func-action-do">Inspect</button>
+        <div class="func-action-slider slider">
+          <button class="func-action-do slick-slide">Inspect</button>
         <div class="func-action-next">
           <svg viewBox="0 0 123.3 180"><polygon points="0 0 0 180 123.3 90 "/></svg>
         </div>
@@ -148,7 +153,7 @@
   <section class="nft-selector">
 
     <div class="nft-selector-inner">
-      <h1>Select NFT</h1>
+      <h1>Plug in NFT</h1>
       <div class="nft-selector-close">Close</div>
       <div class="filters">
         <div class="sort-by">
@@ -187,6 +192,7 @@
   <script src="js/functions.js"> </script>
   <script type="text/javascript" src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.min.js"></script>
+
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
