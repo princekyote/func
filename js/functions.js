@@ -10,7 +10,7 @@ let signer
 
 let ipfs
 
-let RPAddress = "0xe6b01387aa8042c13951335982e5cd3aa1255389"
+let RPAddress = "0xE6B01387AA8042C13951335982e5Cd3aa1255389"
 
 let ERC721ABI = [
   {
@@ -837,7 +837,7 @@ function addNFT(MetaDataJSON){
   let ulist = document.getElementById("portfolio")
   let list = document.createElement("li")
 
-  //addEventListener("click", displayMetaData(MetaDataJSON));
+  list.addEventListener("click", function(){displayMetaData(MetaDataJSON),false});
 
   let imageElement = document.createElement("img")
   imageElement.src = MetaDataJSON.image
@@ -853,13 +853,14 @@ function addNFT(MetaDataJSON){
 function displayMetaData(MetaDataJSON){
   console.log("displayMetaData")
   document.getElementById("nftImage").src = MetaDataJSON.image
-  document.getElementById("")
+  //document.getElementById("")
   let logged_in = document.querySelector('.logged-in')
-  logged_in.toggleClass('nft-selected')
+  logged_in.classList.toggle('select-nft')
 
 }
 
 async function displayImage(nftAddress, tokenId,element){
+  console.log("displayImage")
   let IPFSJson = await getMetaData(nftAddress,tokenId)
   let imageLink = IPFSJson.image
   document.getElementById(element).src = imageLink
