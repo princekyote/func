@@ -194,7 +194,7 @@ header {
     margin:0 auto;
 }
 .func-stage {
-    width:94vw;
+    width:100vw;
     height:70vh;
     max-width:800px;
     margin:0 auto;
@@ -415,6 +415,7 @@ header {
 	align-content: center;
     pointer-events:none;
     @include fade;
+    
     .func-intro-inner {
         width:90%;
         max-width:460px;
@@ -437,6 +438,17 @@ header {
         }
     }
 }
+
+.nft-gif {
+    position: absolute;
+    transform: rotate3d(-24, 30, 17, 
+    50deg);
+    top:0;
+    left:10px;
+    height:200px;
+    opacity:0.5;
+}
+
 
 .func-action {
     width:90vw;

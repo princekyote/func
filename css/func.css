@@ -515,7 +515,7 @@ header .user:hover, header .user:active {
 }
 
 .func-stage {
-  width: 94vw;
+  width: 100vw;
   height: 70vh;
   max-width: 800px;
   margin: 0 auto;
@@ -783,6 +783,15 @@ header .user:hover, header .user:active {
 .func-intro .func-intro-inner p {
   font-size: 1.5em;
   line-height: 1.4em;
+}
+
+.nft-gif {
+  position: absolute;
+  transform: rotate3d(-24, 30, 17, 50deg);
+  top: 0;
+  left: 10px;
+  height: 200px;
+  opacity: 0.5;
 }
 
 .func-action {
