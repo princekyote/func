@@ -142,21 +142,19 @@
         <div class="func-stage-inner">
           <div class="func-stage-front">
             <form>
+              <h1 id="countDownTimer">--:--:--</h1>
               <div class='fieldset'>
                 <div id="drop-image" class="drop-image">
-                  <img src="img/sample1.png">
+                  <img id="dumbImage" src="img/sample1.png">
                 </div>
               </div>
               <div class='fieldset'>
                 <label for='text1'>Price</label>
-                <input type='text' id='text1' placeholder='Set a price in ETH'/>
+                <input type='text' id='ethPriceInput' placeholder='Set a price in ETH'/>
               </div>
               <div class='fieldset'>
                 <label for='text1'>Drop Time</label>
-                <input type='text' id='text1' placeholder='How many hours from now?'/>
-              </div>
-              <div class='fieldset'>
-                <button class="btn-submit" type='submit'>Schedule Drop</button>
+                <input type='text' id='dropTimeInput' placeholder='How many hours from now?'/>
               </div>
             </form>
       
@@ -166,7 +164,33 @@
       <section class="func-action">
         <div class="func-action-slider ">
           <div class="func-action-do">
-            <button class="func-action-do">Drop</button>
+            <button class="func-action-do" onclick="triggerDrop()">Drop</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="func_destroy">
+      <section id="func-stage" class="func-stage">
+        <div class="func-stage-inner">
+          <div class="func-stage-front">
+            <form>
+              <div class='fieldset'>
+                <div id="drop-image" class="drop-image">
+                  <img src="img/sample1.png">
+                </div>
+              </div>
+              <div class='fieldset'>
+                <button class="btn-submit" type='submit'>Destroy NFT</button>
+              </div>
+            </form>
+      
+          </div>
+        </div>
+      </section>
+      <section class="func-action">
+        <div class="func-action-slider ">
+          <div class="func-action-do">
+            <button class="func-action-do">Destroy</button>
           </div>
         </div>
       </section>

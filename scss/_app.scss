@@ -174,7 +174,7 @@ header {
     }
 }
 
-.func_inspect {
+.func_inspect, .func_drop, .func_destroy {
     position: relative;
 }
 
@@ -700,6 +700,7 @@ $text-invert: #ffffff;
     textarea,
     select {
     border: 1px solid $detail;
+    border-radius: 10px;
     color: $text-dark;
     font-size: 100%;
     padding: $space-s

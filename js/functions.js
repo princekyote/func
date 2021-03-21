@@ -16,6 +16,8 @@ let eventsNFT
 
 let network
 
+let selectedID
+
 let ERC721ABI = [
   {
     "anonymous": false,
@@ -968,15 +970,16 @@ async function populateImages(nftAddress) {
   document.getElementById("portfolio").innerHTML = ""
 
   for (let t = 0;t<ownedIdsArray.length;t++){
+    let id = ownedIdsArray[t]
     let metaData = new Object()
-    let metaDataJSON = await getMetaData(nftAddress,t)
+    let metaDataJSON = await getMetaData(nftAddress,id)
     console.log(metaDataJSON)
     let name = metaDataJSON.name
     let description = metaDataJSON.description
     let image = metaDataJSON.image
-    let mintDate = await getDate(eventsNFT[t].blockNumber)
+    let mintDate = await getDate(eventsNFT[id].blockNumber)
     let project = await getProject(nftAddress)
-    addNFT(metaDataJSON,t,nftAddress,mintDate,project)
+    addNFT(metaDataJSON,id,nftAddress,mintDate,project)
   }
 }
 
@@ -1003,11 +1006,13 @@ function addNFT(MetaDataJSON,t,nftAddress,mintDate,project){
   ulist.appendChild(list)
 }
 
-function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
+async function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
   console.log("displayMetaDatas")
   console.log(MetaDataJSON)
   document.getElementById("nftImage").src = MetaDataJSON.image
   //document.getElementById("")
+  document.getElementById("dumbImage").src = MetaDataJSON.image
+  selectedID = t
 
   let tokenID = t
   let name = MetaDataJSON.name
@@ -1032,6 +1037,8 @@ function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
   let logged_in = document.querySelector('.logged-in')
   logged_in.classList.toggle('select-nft')
   logged_in.classList.toggle('nft-selected')
+
+  await setCountDownTimer()
 }
 
 
@@ -1182,9 +1189,10 @@ async function getDropTime(tokenId){
   return(dropTime)
 }
 
-function setCountDownTimer(element) {
+async function setCountDownTimer() {
+let element = "countDownTimer"
   // Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+var countDownDate = await getDropTime(selectedID);
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -1208,7 +1216,18 @@ var x = setInterval(function() {
   // If the count down is over, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById(element).innerHTML = "EXPIRED";
+    document.getElementById(element).innerHTML = "--:--:--";
   }
 }, 1000);
+}
+
+async function triggerDrop(){
+  let tokenID = selectedID
+  let price = document.getElementById("ethPriceInput").value
+  price = ethers.utils.parseEther(price)
+  let minutes = document.getElementById("dropTimeInput").value
+  minutes = parseInt(minutes)
+  await approve(RPAddress,dropAddress)
+  await drop(tokenID,minutes,price)
+
 }

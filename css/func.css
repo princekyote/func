@@ -493,7 +493,7 @@ header .user:hover, header .user:active {
   background-color: #000;
 }
 
-.func_inspect {
+.func_inspect, .func_drop, .func_destroy {
   position: relative;
 }
 
@@ -1049,6 +1049,7 @@ form input,
 form textarea,
 form select {
   border: 1px solid #d5d7de;
+  border-radius: 10px;
   color: #71728c;
   font-size: 100%;
   padding: 15px;
