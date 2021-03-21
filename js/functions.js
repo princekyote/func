@@ -10,7 +10,7 @@ let signer
 
 let ipfs
 
-let RPAddress = "0x50de9438e554e7512277bf9f06d44465adf405d3"
+let RPAddress = "0xe6b01387aa8042c13951335982e5cd3aa1255389"
 
 let ERC721ABI = [
   {
