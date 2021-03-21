@@ -870,7 +870,6 @@ function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
   let tokenID = t
   let name = MetaDataJSON.name
   let description = MetaDataJSON.description
-  let project = MetaDataJSON.name
   let Blockchain = "Ethereum"
   let Platform = "Independent"
   let ContractAddressLink = "https://" + network + ".etherscan.io/address/" + nftAddress
