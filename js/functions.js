@@ -826,6 +826,8 @@ async function populateImages(nftAddress) {
   console.log("populateImages")
   let ownedIdsArray = await getOwnedIds(nftAddress,signer._address)
   console.log(ownedIdsArray)
+  document.getElementById("portfolio").innerHTML = ""
+
   for (let t = 0;t<ownedIdsArray.length;t++){
     let metaData = new Object()
     let metaDataJSON = await getMetaData(nftAddress,t)
@@ -835,7 +837,6 @@ async function populateImages(nftAddress) {
     let image = metaDataJSON.image
     let mintDate = await getDate(eventsNFT[t].blockNumber)
     let project = await getProject(nftAddress)
-
     addNFT(metaDataJSON,t,nftAddress,mintDate,project)
   }
 }
@@ -844,6 +845,7 @@ function addNFT(MetaDataJSON,t,nftAddress,mintDate,project){
   console.log("addNFT")
   //add an nft
   let ulist = document.getElementById("portfolio")
+
   let list = document.createElement("li")
 
 
@@ -1007,4 +1009,9 @@ function getIPFSJSON(IPFSLink) {
     xmlHttp.open( "GET", IPFSLink, false ); // false for synchronous request
     xmlHttp.send( null );
     return (JSON.parse(xmlHttp.responseText));
+}
+
+async function destroy(tokenId,nftAddress){
+  let contract = new ethers.Contract(nftAddress,ERC721ABI,metamaskProvider)
+  await contract.transferFrom(signer._address,"0x0000000000000000000000000000000000000000",tokenId)
 }

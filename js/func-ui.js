@@ -1,6 +1,3 @@
-$(document).ready(function(){
-  $('.slider').bxSlider();
-});
 
 
 $('.dropdown-el').click(function(e) {
@@ -53,18 +50,18 @@ $('.btn-eject').click(function(e) {
 
 
 function hoverImage(e) {
-  
+
   const inMaxX = e.target.width;
   const inMaxY = e.target.height;
-  
-  const xMapped = (map(e.offsetX, 0, inMaxX, -1, 1)); 
+
+  const xMapped = (map(e.offsetX, 0, inMaxX, -1, 1));
   const yMapped = (map(e.offsetY, 0, inMaxY, 1, -1));
-  
+
   e.target.style.transform = "rotate3d("+yMapped+","+xMapped+",0,10deg)";
 }
 
 function leaveImage(e) {
-    e.target.style.transform = "rotate3d(0,0,0,10deg)";  
+    e.target.style.transform = "rotate3d(0,0,0,10deg)";
     console.log("out");
 }
 
