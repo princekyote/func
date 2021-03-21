@@ -822,15 +822,39 @@ async function populateImages(nftAddress) {
   for (let t = 0;t<ownedIdsArray.length;t++){
     let metaData = new Object()
     let metaDataJSON = await getMetaData(nftAddress,t)
+    console.log(metaDataJSON)
     let name = metaDataJSON.name
+    let description = metaDataJSON.description
     let image = metaDataJSON.image
-    addNFT(name, image)
+    addNFT(name, description, image,metaDataJSON)
   }
-
 }
 
-function addNFT(name, image){
-  
+function addNFT(MetaDataJSON){
+  //add an nft
+  let ulist = document.getElementById("portfolio")
+  let list = document.createElement("li")
+
+  addEventListener("click", displayMetaData(MetaDataJSON));
+
+  let imageElement = document.createElement("img")
+  imageElement.src = MetaDataJSON.image
+
+  let nameElement = document.createElement("span")
+  nameElement.innerHTML = MetaDataJSON.name
+
+  list.appendChild(imageElement)
+  list.appendChild(nameElement)
+  ulist.appendChild(list)
+}
+
+function displayMetaData(MetaDataJSON){
+  console.log("displayMetaData")
+  document.getElementById("nftImage").src = MetaDataJSON.image
+
+  let logged_in = document.querySelector('.logged-in')
+  logged_in.toggleClass('nft-selected')
+
 }
 
 async function displayImage(nftAddress, tokenId,element){
