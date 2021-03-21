@@ -31,5 +31,6 @@ $('.nft').click(function(e) {
 
 $('.btn-eject').click(function(e) {
   $('.logged-in').toggleClass('nft-selected');
+  e.stopPropagation();
 });
 
