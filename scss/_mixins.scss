@@ -255,3 +255,16 @@
     background: -webkit-linear-gradient(-45deg, #eae8cf 0%,#c4bad1 25%,#88c9d4 45%,#7dc8bf 60%,#a8b2a3 80%,#60c4b9 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, #eae8cf 0%,#c4bad1 25%,#88c9d4 45%,#7dc8bf 60%,#a8b2a3 80%,#60c4b9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eae8cf', endColorstr='#60c4b9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */}
+
+$gradient-color-1: #912dee;
+$gradient-color-2: #aed112;
+
+// Keyframes
+@keyframes animationgradienttitle {
+  0% {
+      background-position: 0 1600px;
+  }
+  100% {
+      background-position: 1600px 0;
+  }
+}
