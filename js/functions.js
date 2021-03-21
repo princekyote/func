@@ -1037,8 +1037,6 @@ async function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
   let logged_in = document.querySelector('.logged-in')
   logged_in.classList.toggle('select-nft')
   logged_in.classList.toggle('nft-selected')
-
-  await setCountDownTimer()
 }
 
 
@@ -1189,10 +1187,10 @@ async function getDropTime(tokenId){
   return(dropTime)
 }
 
-async function setCountDownTimer() {
+async function setCountDownTimer(minutes) {
 let element = "countDownTimer"
   // Set the date we're counting down to
-var countDownDate = await getDropTime(selectedID);
+  var countDownDate = new Date().getTime() + minutes*60000
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -1229,5 +1227,7 @@ async function triggerDrop(){
   minutes = parseInt(minutes)
   await approve(RPAddress,dropAddress)
   await drop(tokenID,minutes,price)
+
+  await setCountDownTimer(minutes);
 
 }
