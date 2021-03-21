@@ -178,10 +178,15 @@ header {
     position: relative;
 }
 
-.func_destroy .func-stage {
+.func_destroy .func-stage-front {
     background-image:url("../img/bkg-destroy.jpg");
     background-size:cover;
     background-position:center;
+    .destroy-image img {
+        max-width: 300px;
+        max-height: 300px;
+        margin: 10px;
+    }
 }
 
 .func-wrapper {

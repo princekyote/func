@@ -1013,6 +1013,8 @@ async function displayMetaData(MetaDataJSON,t,nftAddress,mintDate,project){
   //document.getElementById("")
   document.getElementById("dumbImage").src = MetaDataJSON.image
   selectedID = t
+  document.getElementById("destroyImage").src = MetaDataJSON.image
+  selectedID = t
 
   let tokenID = t
   let name = MetaDataJSON.name
@@ -1208,8 +1210,8 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Output the result in an element with id="demo"
-  document.getElementById(element).innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+  document.getElementById(element).innerHTML = days + ":" + hours + ":"
+  + minutes + ":" + seconds;
 
   // If the count down is over, write some text
   if (distance < 0) {
