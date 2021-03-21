@@ -17,6 +17,12 @@ body.nft-selected {
     .func-stage-flip {
         display:flex;
     }
+    .func-stage-open-selector {
+        display:none;
+    }
+    .btn-eject {
+        display:block;
+    }
 }
 
 .logged-in {
@@ -196,10 +202,6 @@ header {
             justify-content: center;
             align-items: center;
             align-content: center;
-            background-image:url("../img/icon-add.svg");
-            background-position: center;
-            background-size:15%;
-            background-repeat: no-repeat;
             .stage-nft-media {
                 margin:5vh 5vw;
                 img {
@@ -291,6 +293,10 @@ header {
     left:0;
     right:0;
     bottom:0;
+    background-image:url("../img/icon-add.svg");
+    background-position: center;
+    background-size:15%;
+    background-repeat: no-repeat;
 }
 
 .func-stage-flip {
@@ -388,10 +394,12 @@ header {
     transform: translateY(100vh);
     background-color:#111;
     text-align:center;
+    @include fadeSlow;
     h1 {
         color:#fff;
+        margin-bottom:30px;
     }
-    .close {
+    .nft-selector-close {
         position:absolute;
         top:3vh;
         right:5vw;
@@ -404,7 +412,7 @@ header {
         max-width:800px;
         margin:0 auto;
         .filters {
-            display:block;
+            display:none;
             width:calc(100% - 4vw);
             padding:10px 2vw;
             .sort-by {
@@ -423,8 +431,10 @@ header {
                     display:inline-block;
                     color:#fff;
                     margin-bottom:20px;
+                    cursor:pointer;
                     img {
                         max-width:100%;
+                        margin-bottom:6px;
                         @include fade;
                     }
                     &:hover {

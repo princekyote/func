@@ -308,6 +308,14 @@ body.nft-selected .func-stage-flip {
   display: flex;
 }
 
+body.nft-selected .func-stage-open-selector {
+  display: none;
+}
+
+body.nft-selected .btn-eject {
+  display: block;
+}
+
 .logged-in .connect {
   display: none !important;
 }
@@ -502,10 +510,6 @@ header .user:hover, header .user:active {
   justify-content: center;
   align-items: center;
   align-content: center;
-  background-image: url("../img/icon-add.svg");
-  background-position: center;
-  background-size: 15%;
-  background-repeat: no-repeat;
 }
 
 .func-stage .func-stage-inner .func-stage-front .stage-nft-media {
@@ -609,6 +613,10 @@ header .user:hover, header .user:active {
   left: 0;
   right: 0;
   bottom: 0;
+  background-image: url("../img/icon-add.svg");
+  background-position: center;
+  background-size: 15%;
+  background-repeat: no-repeat;
 }
 
 .func-stage-flip {
@@ -718,13 +726,16 @@ header .user:hover, header .user:active {
   transform: translateY(100vh);
   background-color: #111;
   text-align: center;
+  moz-transition: all 0.9s cubic-bezier(0.62, 0.28, 0.23, 0.99);
+  transition: all 0.9s cubic-bezier(0.62, 0.28, 0.23, 0.99);
 }
 
 .nft-selector h1 {
   color: #fff;
+  margin-bottom: 30px;
 }
 
-.nft-selector .close {
+.nft-selector .nft-selector-close {
   position: absolute;
   top: 3vh;
   right: 5vw;
@@ -743,7 +754,7 @@ header .user:hover, header .user:active {
 }
 
 .nft-selector .nft-selector-inner .filters {
-  display: block;
+  display: none;
   width: calc(100% - 4vw);
   padding: 10px 2vw;
 }
@@ -764,10 +775,12 @@ header .user:hover, header .user:active {
   display: inline-block;
   color: #fff;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .nft-selector .nft-selector-inner .nft-list ul li img {
   max-width: 100%;
+  margin-bottom: 6px;
   moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
