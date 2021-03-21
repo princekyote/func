@@ -286,6 +286,7 @@ header {
     pointer-events: auto;
     @include fade;
     @include alt-font;
+    font-size:17px;
     &:hover, &:active {
         color:#fff;
         background-color:#000;
@@ -416,6 +417,7 @@ header {
         border-radius:10px;
         cursor:pointer;
         @include alt-font;
+        font-size:17px;
         @include fade;
         &:hover, &:active {
             color:#fff;

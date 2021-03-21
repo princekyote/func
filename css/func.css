@@ -620,6 +620,7 @@ header .user:hover, header .user:active {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase !important;
+  font-size: 17px;
 }
 
 .btn-eject:hover, .btn-eject:active {
@@ -767,6 +768,7 @@ header .user:hover, header .user:active {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase !important;
+  font-size: 17px;
   moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
