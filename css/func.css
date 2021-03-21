@@ -69,6 +69,15 @@
   -webkit-transform: rotate(320deg);
 }
 
+@keyframes animationgradienttitle {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -298,6 +307,7 @@ body.view-meta .func-stage-inner {
 
 body.select-nft .nft-selector {
   transform: translateY(0vh);
+  opacity: 1;
 }
 
 body.nft-selected .func-stage-front img {
@@ -336,6 +346,10 @@ body.nft-selected .func-action {
 
 .logged-in .func-stage-open-selector:hover {
   opacity: 1;
+}
+
+.logged-in .func-intro {
+  opacity: 0;
 }
 
 header {
@@ -662,6 +676,52 @@ header .user:hover, header .user:active {
   font-size: 3em;
 }
 
+.func-intro {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f4da;
+  opacity: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  pointer-events: none;
+  moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+
+.func-intro .func-intro-inner {
+  width: 90%;
+  max-width: 460px;
+}
+
+.func-intro .func-intro-inner h1 {
+  font-size: 6vh;
+  margin-top: 0;
+  background: -webkit-linear-gradient(left, #912dee, #aed112, #912dee);
+  background-size: 1600px 200px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-duration: 3s;
+  animation-name: animationgradienttitle;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+.func-intro .func-intro-inner p {
+  font-size: 1.5em;
+  line-height: 1.4em;
+}
+
 .func-action {
   width: 90vw;
   max-width: 720px;
@@ -741,6 +801,7 @@ header .user:hover, header .user:active {
   bottom: 0;
   left: 0;
   right: 0;
+  opacity: 0;
   overflow-y: scroll;
   overflow-x: hidden;
   transform: translateY(100vh);
