@@ -1012,6 +1012,6 @@ function getIPFSJSON(IPFSLink) {
 }
 
 async function destroy(tokenId,nftAddress){
-  let contract = new ethers.Contract(nftAddress,ERC721ABI,metamaskProvider)
-  await contract.transferFrom(signer._address,"0x0000000000000000000000000000000000000000",tokenId)
+  let contract = new ethers.Contract(nftAddress,ERC721ABI,signer)
+  await contract.transferFrom(signer._address,"0x0000000000000000000000000000000000000000",tokenId,{gasLimit:300000})
 }
