@@ -182,10 +182,13 @@ header {
     background-image:url("../img/bkg-destroy.jpg");
     background-size:cover;
     background-position:center;
-    .destroy-image img {
+    .destroy-image {
+        opacity: 0.7;
+        img {
         max-width: 300px;
         max-height: 300px;
         margin: 10px;
+        }
     }
 }
 

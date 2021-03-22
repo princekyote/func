@@ -503,6 +503,10 @@ header .user:hover, header .user:active {
   background-position: center;
 }
 
+.func_destroy .func-stage-front .destroy-image {
+  opacity: 0.7;
+}
+
 .func_destroy .func-stage-front .destroy-image img {
   max-width: 300px;
   max-height: 300px;
